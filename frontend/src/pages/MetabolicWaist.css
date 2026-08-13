@@ -1,0 +1,1157 @@
+/* =====================================
+   Page
+===================================== */
+
+.waist-page {
+  min-height: 100vh;
+
+  font-family:
+    "Microsoft JhengHei",
+    "Noto Sans TC",
+    Arial,
+    sans-serif;
+
+  color: #1d2939;
+
+  background:
+    radial-gradient(
+      circle at 88% 8%,
+      rgba(40, 169, 157, 0.11),
+      transparent 26%
+    ),
+    linear-gradient(
+      180deg,
+      #f4fbfa 0%,
+      #ffffff 45%,
+      #f7fafc 100%
+    );
+}
+
+
+/* =====================================
+   Header
+===================================== */
+
+.waist-header {
+  background: rgba(255, 255, 255, 0.93);
+
+  border-bottom: 1px solid #e5ecef;
+
+  backdrop-filter: blur(12px);
+}
+
+
+.waist-header-inner {
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  padding: 15px 28px;
+
+  display: grid;
+
+  grid-template-columns: 1fr auto 1fr;
+
+  align-items: center;
+}
+
+
+.waist-back-home {
+  width: fit-content !important;
+
+  padding: 9px 13px !important;
+
+  border: none !important;
+
+  border-radius: 9px !important;
+
+  background: transparent !important;
+
+  color: #687689 !important;
+
+  font-size: 13px !important;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+.waist-back-home:hover {
+  color: #17877e !important;
+
+  background: #ecf8f6 !important;
+}
+
+
+/* =====================================
+   Brand
+===================================== */
+
+.waist-brand {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 11px;
+}
+
+
+.waist-brand-icon {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  color: #17897f;
+
+  background: #e2f6f2;
+
+  font-size: 18px;
+}
+
+
+.waist-brand > div:last-child {
+  text-align: left;
+}
+
+
+.waist-brand h1 {
+  margin: 0;
+
+  padding: 0;
+
+  color: #263345;
+
+  font-size: 15px;
+
+  font-weight: 750;
+}
+
+
+.waist-brand p {
+  margin: 2px 0 0;
+
+  color: #a1acb8;
+
+  font-size: 9px;
+}
+
+
+.waist-header-space {
+  width: 1px;
+}
+
+
+/* =====================================
+   Main
+===================================== */
+
+.waist-main {
+  width: 100%;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 42px 24px 65px;
+}
+
+
+/* =====================================
+   Progress
+===================================== */
+
+.screening-progress {
+  margin-bottom: 44px;
+}
+
+
+.progress-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  color: #788597;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+.progress-bar-bg {
+  width: 100%;
+
+  height: 7px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: #e7eeef;
+}
+
+
+.progress-bar-fill {
+  height: 100%;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #18857f,
+      #2bae9f
+    );
+}
+
+
+.progress-bar-fill.step-four {
+  width: 80%;
+}
+
+
+.progress-labels {
+  margin-top: 12px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  color: #a1acb8;
+
+  font-size: 10px;
+}
+
+
+.progress-labels span {
+  text-align: center;
+}
+
+
+.progress-labels span:first-child {
+  text-align: left;
+}
+
+
+.progress-labels span:last-child {
+  text-align: right;
+}
+
+
+.progress-labels .active {
+  color: #16877d;
+
+  font-weight: 750;
+}
+
+
+/* =====================================
+   Title
+===================================== */
+
+.waist-title {
+  margin-bottom: 30px;
+
+  text-align: center;
+}
+
+
+.waist-step-badge {
+  width: fit-content;
+
+  margin: 0 auto 10px;
+
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  color: #18877e;
+
+  background: #e7f7f4;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+}
+
+
+.waist-title h2 {
+  margin: 0;
+
+  padding: 0;
+
+  border: none;
+
+  color: #202d3e;
+
+  font-size: 31px;
+
+  font-weight: 800;
+}
+
+
+.waist-title p {
+  max-width: 600px;
+
+  margin: 10px auto 0;
+
+  color: #7b8898;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+
+/* =====================================
+   Form Card
+===================================== */
+
+.waist-form-card {
+  padding: 34px 36px;
+
+  border: 1px solid #dee7ea;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255, 255, 255, 0.96);
+
+  box-shadow:
+    0 14px 38px
+    rgba(34, 55, 70, 0.07);
+}
+
+
+/* =====================================
+   Heading
+===================================== */
+
+.waist-card-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin-bottom: 27px;
+}
+
+
+.waist-heading-icon {
+  width: 43px;
+  height: 43px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  color: #16877d;
+
+  background: #e3f6f2;
+
+  font-size: 12px;
+
+  font-weight: 800;
+}
+
+
+.waist-card-heading > div:last-child {
+  text-align: left;
+}
+
+
+.waist-card-heading span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #26a399;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+
+.waist-card-heading h3 {
+  margin: 0;
+
+  color: #2a3747;
+
+  font-size: 18px;
+
+  font-weight: 750;
+}
+
+
+/* =====================================
+   Optional Banner
+===================================== */
+
+.waist-optional-banner {
+  margin-bottom: 25px;
+
+  padding: 15px 17px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 11px;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef9f6,
+      #f8fcfb
+    );
+
+  border: 1px solid #d8ebe6;
+
+  text-align: left;
+}
+
+
+.optional-icon {
+  width: 27px;
+  height: 27px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #dcf2ec;
+
+  color: #18877d;
+
+  font-size: 12px;
+
+  font-weight: 800;
+}
+
+
+.waist-optional-banner strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #37675f;
+
+  font-size: 12px;
+}
+
+
+.waist-optional-banner p {
+  margin: 0;
+
+  color: #76908a;
+
+  font-size: 10px;
+
+  line-height: 1.65;
+}
+
+
+/* =====================================
+   Waist Field
+===================================== */
+
+.waist-field {
+  text-align: left;
+}
+
+
+.waist-field label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 6px;
+
+  color: #384657;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+
+.optional-text {
+  padding: 3px 7px;
+
+  border-radius: 999px;
+
+  color: #218d83;
+
+  background: #e5f6f2;
+
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+
+.waist-field-help {
+  margin: 0 0 13px;
+
+  color: #8b97a5;
+
+  font-size: 11px;
+}
+
+
+.waist-input-wrapper {
+  position: relative;
+}
+
+
+.waist-input-wrapper input {
+  width: 100%;
+
+  height: 58px;
+
+  padding: 0 75px 0 17px;
+
+  border: 1px solid #d8e0e5;
+
+  border-radius: 13px;
+
+  outline: none;
+
+  background: #fbfcfd;
+
+  color: #344154;
+
+  font-size: 18px;
+
+  font-weight: 650;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+.waist-input-wrapper input:focus {
+  background: #ffffff;
+
+  border-color: #54b9af;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(40, 169, 157, 0.1);
+}
+
+
+.waist-input-wrapper input:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.55;
+
+  background: #f1f4f5;
+}
+
+
+.waist-input-wrapper input::placeholder {
+  color: #b4bec8;
+
+  font-weight: 400;
+}
+
+
+.waist-input-unit {
+  position: absolute;
+
+  top: 50%;
+  right: 17px;
+
+  transform: translateY(-50%);
+
+  color: #7e8b9c;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  pointer-events: none;
+}
+
+
+.waist-error {
+  margin: 7px 0 0;
+
+  color: #d85f5f;
+
+  font-size: 11px;
+}
+
+
+/* =====================================
+   Or
+===================================== */
+
+.waist-or {
+  margin: 23px 0;
+
+  display: grid;
+
+  grid-template-columns: 1fr auto 1fr;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+.waist-or span {
+  height: 1px;
+
+  background: #e5eaed;
+}
+
+
+.waist-or p {
+  margin: 0;
+
+  color: #a0aab5;
+
+  font-size: 10px;
+}
+
+
+/* =====================================
+   Skip Card
+===================================== */
+
+.waist-skip-card {
+  width: 100% !important;
+
+  min-height: 74px;
+
+  padding: 15px 17px !important;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  text-align: left;
+
+  border: 1px solid #dce4e8 !important;
+
+  border-radius: 13px !important;
+
+  background: #fbfcfd !important;
+
+  color: #566475 !important;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.waist-skip-card:hover {
+  border-color: #a7d2cd !important;
+
+  background: #f5fbfa !important;
+}
+
+
+.waist-skip-card.selected {
+  border-color: #54b7ae !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #edf9f7,
+      #f7fcfb
+    ) !important;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(40, 169, 157, 0.08);
+}
+
+
+.skip-radio {
+  position: relative;
+
+  width: 19px;
+  height: 19px;
+
+  flex-shrink: 0;
+
+  border: 2px solid #bdc9ce;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
+
+
+.waist-skip-card.selected .skip-radio {
+  border-color: #29a99e;
+}
+
+
+.waist-skip-card.selected .skip-radio::after {
+  content: "";
+
+  width: 8px;
+  height: 8px;
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: #29a99e;
+}
+
+
+.skip-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.skip-content strong {
+  color: #3e4c5c;
+
+  font-size: 12px;
+}
+
+
+.waist-skip-card.selected
+.skip-content strong {
+  color: #187f76;
+}
+
+
+.skip-content span {
+  color: #8895a2;
+
+  font-size: 10px;
+}
+
+
+/* =====================================
+   Measure Guide
+===================================== */
+
+.waist-measure-guide {
+  margin-top: 26px;
+
+  padding: 18px 20px;
+
+  border: 1px solid #e4e9ed;
+
+  border-radius: 13px;
+
+  background: #f8fafb;
+}
+
+
+.measure-guide-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 13px;
+}
+
+
+.measure-guide-icon {
+  width: 22px;
+  height: 22px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e7ecef;
+
+  color: #748294;
+
+  font-family: Georgia, serif;
+
+  font-size: 12px;
+
+  font-weight: bold;
+}
+
+
+.measure-guide-title h4 {
+  margin: 0;
+
+  color: #536173;
+
+  font-size: 12px;
+
+  font-weight: 750;
+}
+
+
+.measure-steps {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 12px;
+}
+
+
+.measure-step {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 8px;
+
+  text-align: left;
+}
+
+
+.measure-step > span {
+  width: 21px;
+  height: 21px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  background: #e6f4f1;
+
+  color: #18867c;
+
+  font-size: 9px;
+
+  font-weight: 800;
+}
+
+
+.measure-step p {
+  margin: 2px 0 0;
+
+  color: #83909e;
+
+  font-size: 10px;
+
+  line-height: 1.55;
+}
+
+
+/* =====================================
+   Note
+===================================== */
+
+.waist-note {
+  margin-top: 20px;
+
+  padding: 14px 16px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  border-radius: 11px;
+
+  background: #f7f9fb;
+
+  border: 1px solid #e5eaee;
+}
+
+
+.waist-note-icon {
+  width: 21px;
+  height: 21px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e7ebef;
+
+  color: #768496;
+
+  font-family: Georgia, serif;
+
+  font-size: 12px;
+
+  font-weight: bold;
+}
+
+
+.waist-note p {
+  margin: 1px 0 0;
+
+  text-align: left;
+
+  color: #84909e;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+/* =====================================
+   Actions
+===================================== */
+
+.waist-actions {
+  margin-top: 29px;
+
+  display: grid;
+
+  grid-template-columns:
+    160px 1fr;
+
+  gap: 13px;
+}
+
+
+.waist-prev-button,
+.waist-next-button {
+  min-height: 50px;
+
+  border-radius: 12px !important;
+
+  font-family: inherit;
+
+  font-size: 13px !important;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.waist-prev-button {
+  width: 100% !important;
+
+  color: #657487 !important;
+
+  background: #ffffff !important;
+
+  border:
+    1px solid #d7e0e6 !important;
+}
+
+
+.waist-prev-button:hover {
+  color: #405164 !important;
+
+  background: #f7f9fa !important;
+}
+
+
+.waist-next-button {
+  width: 100% !important;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  color: #ffffff !important;
+
+  border: none !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #157c81,
+      #28aa9e
+    ) !important;
+
+  box-shadow:
+    0 8px 21px
+    rgba(38, 160, 151, 0.2);
+}
+
+
+.waist-next-button:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 12px 25px
+    rgba(38, 160, 151, 0.28);
+}
+
+
+.waist-next-button span {
+  font-size: 18px;
+}
+
+
+/* =====================================
+   Tablet
+===================================== */
+
+@media (max-width: 700px) {
+
+  .waist-header-inner {
+    grid-template-columns:
+      auto 1fr;
+  }
+
+
+  .waist-brand {
+    justify-content: flex-end;
+  }
+
+
+  .waist-header-space {
+    display: none;
+  }
+
+
+  .measure-steps {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =====================================
+   Mobile
+===================================== */
+
+@media (max-width: 520px) {
+
+  .waist-header-inner {
+    padding: 12px 15px;
+  }
+
+
+  .waist-back-home {
+    padding:
+      7px 8px !important;
+
+    font-size: 11px !important;
+  }
+
+
+  .waist-brand-icon {
+    display: none;
+  }
+
+
+  .waist-brand h1 {
+    font-size: 12px;
+  }
+
+
+  .waist-brand p {
+    display: none;
+  }
+
+
+  .waist-main {
+    padding:
+      32px 15px
+      50px;
+  }
+
+
+  .progress-labels {
+    display: none;
+  }
+
+
+  .waist-title h2 {
+    font-size: 27px;
+  }
+
+
+  .waist-form-card {
+    padding:
+      25px 19px;
+  }
+
+
+  .waist-actions {
+    grid-template-columns: 1fr;
+  }
+
+
+  .waist-next-button {
+    grid-row: 1;
+  }
+
+
+  .waist-prev-button {
+    grid-row: 2;
+  }
+
+}

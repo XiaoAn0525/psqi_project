@@ -1,0 +1,888 @@
+/* =====================================
+   Page
+===================================== */
+
+.confirm-page {
+  min-height: 100vh;
+
+  font-family:
+    "Microsoft JhengHei",
+    "Noto Sans TC",
+    Arial,
+    sans-serif;
+
+  color: #1d2939;
+
+  background:
+    radial-gradient(
+      circle at 88% 7%,
+      rgba(40, 169, 157, 0.11),
+      transparent 26%
+    ),
+    linear-gradient(
+      180deg,
+      #f4fbfa 0%,
+      #ffffff 45%,
+      #f7fafc 100%
+    );
+}
+
+
+/* =====================================
+   Header
+===================================== */
+
+.confirm-header {
+  background:
+    rgba(255, 255, 255, 0.93);
+
+  border-bottom:
+    1px solid #e5ecef;
+
+  backdrop-filter:
+    blur(12px);
+}
+
+
+.confirm-header-inner {
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  padding:
+    15px 28px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr auto 1fr;
+
+  align-items: center;
+}
+
+
+.confirm-back-home {
+  width:
+    fit-content !important;
+
+  padding:
+    9px 13px !important;
+
+  border:
+    none !important;
+
+  border-radius:
+    9px !important;
+
+  background:
+    transparent !important;
+
+  color:
+    #687689 !important;
+
+  font-size:
+    13px !important;
+
+  font-weight:
+    600;
+
+  cursor:
+    pointer;
+}
+
+
+.confirm-back-home:hover {
+  color:
+    #17877e !important;
+
+  background:
+    #ecf8f6 !important;
+}
+
+
+.confirm-brand {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 11px;
+}
+
+
+.confirm-brand-icon {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 12px;
+
+  color: #17897f;
+
+  background: #e2f6f2;
+
+  font-size: 18px;
+}
+
+
+.confirm-brand > div:last-child {
+  text-align: left;
+}
+
+
+.confirm-brand h1 {
+  margin: 0;
+
+  padding: 0;
+
+  color: #263345;
+
+  font-size: 15px;
+
+  font-weight: 750;
+}
+
+
+.confirm-brand p {
+  margin:
+    2px 0 0;
+
+  color: #a1acb8;
+
+  font-size: 9px;
+}
+
+
+.confirm-header-space {
+  width: 1px;
+}
+
+
+/* =====================================
+   Main
+===================================== */
+
+.confirm-main {
+  width: 100%;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding:
+    42px 24px
+    70px;
+}
+
+
+/* =====================================
+   Progress
+===================================== */
+
+.screening-progress {
+  margin-bottom: 44px;
+}
+
+
+.progress-top {
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  margin-bottom: 10px;
+
+  color: #788597;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+.progress-bar-bg {
+  width: 100%;
+
+  height: 7px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: #e7eeef;
+}
+
+
+.progress-bar-fill {
+  height: 100%;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #18857f,
+      #2bae9f
+    );
+}
+
+
+.progress-bar-fill.step-five {
+  width: 100%;
+}
+
+
+.progress-labels {
+  margin-top: 12px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  color: #a1acb8;
+
+  font-size: 10px;
+}
+
+
+.progress-labels span {
+  text-align: center;
+}
+
+
+.progress-labels span:first-child {
+  text-align: left;
+}
+
+
+.progress-labels span:last-child {
+  text-align: right;
+}
+
+
+.progress-labels .active {
+  color: #16877d;
+
+  font-weight: 750;
+}
+
+
+/* =====================================
+   Title
+===================================== */
+
+.confirm-title {
+  margin-bottom: 30px;
+
+  text-align: center;
+}
+
+
+.confirm-step-badge {
+  width: fit-content;
+
+  margin:
+    0 auto 10px;
+
+  padding:
+    5px 10px;
+
+  border-radius:
+    999px;
+
+  color:
+    #18877e;
+
+  background:
+    #e7f7f4;
+
+  font-size:
+    10px;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    1.3px;
+}
+
+
+.confirm-title h2 {
+  margin: 0;
+
+  padding: 0;
+
+  border: none;
+
+  color: #202d3e;
+
+  font-size: 31px;
+
+  font-weight: 800;
+}
+
+
+.confirm-title p {
+  max-width: 610px;
+
+  margin:
+    10px auto 0;
+
+  color: #7b8898;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+
+/* =====================================
+   Cards
+===================================== */
+
+.confirm-card {
+  margin-bottom: 18px;
+
+  padding: 27px 30px;
+
+  border:
+    1px solid #dfe7ea;
+
+  border-radius:
+    18px;
+
+  background:
+    rgba(255, 255, 255, 0.97);
+
+  box-shadow:
+    0 10px 28px
+    rgba(34, 55, 70, 0.055);
+}
+
+
+.confirm-card-header {
+  display: grid;
+
+  grid-template-columns:
+    auto 1fr auto;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 21px;
+}
+
+
+.confirm-card-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 11px;
+
+  color: #16877d;
+
+  background: #e3f6f2;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+
+.confirm-card-icon.sleep {
+  color: #5969a4;
+
+  background: #eef0fb;
+}
+
+
+.confirm-card-header > div:nth-child(2) {
+  text-align: left;
+}
+
+
+.confirm-card-header span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #26a399;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+}
+
+
+.confirm-card-header h3 {
+  margin: 0;
+
+  color: #344153;
+
+  font-size: 16px;
+
+  font-weight: 750;
+}
+
+
+/* =====================================
+   Edit Button
+===================================== */
+
+.edit-section-button {
+  width:
+    fit-content !important;
+
+  padding:
+    7px 11px !important;
+
+  border:
+    1px solid
+    #d6e2e4 !important;
+
+  border-radius:
+    8px !important;
+
+  background:
+    white !important;
+
+  color:
+    #68788a !important;
+
+  font-size:
+    10px !important;
+
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+}
+
+
+.edit-section-button:hover {
+  color:
+    #16877d !important;
+
+  border-color:
+    #9ccfc9 !important;
+
+  background:
+    #f2faf8 !important;
+}
+
+
+/* =====================================
+   Data Grid
+===================================== */
+
+.confirm-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+
+.lifestyle-confirm-grid {
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+}
+
+
+.confirm-item {
+  min-height: 66px;
+
+  padding:
+    13px 15px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 4px;
+
+  text-align: left;
+
+  border-radius:
+    11px;
+
+  background:
+    #f8fafb;
+
+  border:
+    1px solid #e8edef;
+}
+
+
+.confirm-item > span {
+  color: #8a96a4;
+
+  font-size: 10px;
+}
+
+
+.confirm-item strong {
+  color: #405062;
+
+  font-size: 13px;
+
+  font-weight: 750;
+
+  line-height: 1.5;
+}
+
+
+.highlight-item {
+  background:
+    linear-gradient(
+      135deg,
+      #eef9f6,
+      #f7fcfb
+    );
+
+  border-color:
+    #d8ece7;
+}
+
+
+.highlight-item strong {
+  color: #18857c;
+}
+
+
+/* =====================================
+   Notice
+===================================== */
+
+.confirm-notice {
+  margin-top: 27px;
+
+  padding:
+    17px 19px;
+
+  display: flex;
+
+  align-items:
+    flex-start;
+
+  gap: 12px;
+
+  text-align: left;
+
+  border-radius:
+    13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff9ee,
+      #fffcf6
+    );
+
+  border:
+    1px solid #efe1c4;
+}
+
+
+.confirm-notice-icon {
+  width: 27px;
+  height: 27px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 8px;
+
+  color: #a87825;
+
+  background: #f6e7c5;
+
+  font-family: Georgia, serif;
+
+  font-size: 14px;
+
+  font-weight: bold;
+}
+
+
+.confirm-notice h4 {
+  margin:
+    1px 0 5px;
+
+  color: #80612c;
+
+  font-size: 12px;
+
+  font-weight: 750;
+}
+
+
+.confirm-notice p {
+  margin: 0;
+
+  color: #938064;
+
+  font-size: 10px;
+
+  line-height: 1.75;
+}
+
+
+/* =====================================
+   Actions
+===================================== */
+
+.confirm-actions {
+  margin-top: 30px;
+
+  display: grid;
+
+  grid-template-columns:
+    160px 1fr;
+
+  gap: 13px;
+}
+
+
+.confirm-prev-button,
+.confirm-submit-button {
+  min-height: 52px;
+
+  border-radius:
+    12px !important;
+
+  font-family: inherit;
+
+  font-size:
+    13px !important;
+
+  font-weight:
+    700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.confirm-prev-button {
+  width:
+    100% !important;
+
+  color:
+    #657487 !important;
+
+  background:
+    #ffffff !important;
+
+  border:
+    1px solid
+    #d7e0e6 !important;
+}
+
+
+.confirm-prev-button:hover {
+  color:
+    #405164 !important;
+
+  background:
+    #f7f9fa !important;
+}
+
+
+.confirm-submit-button {
+  width:
+    100% !important;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  color:
+    white !important;
+
+  border:
+    none !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #147b81,
+      #28aa9e
+    ) !important;
+
+  box-shadow:
+    0 9px 23px
+    rgba(38, 160, 151, 0.22);
+}
+
+
+.confirm-submit-button:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 13px 29px
+    rgba(38, 160, 151, 0.3);
+}
+
+
+.confirm-submit-button span {
+  font-size: 18px;
+
+  transition:
+    transform 0.2s ease;
+}
+
+
+.confirm-submit-button:hover span {
+  transform:
+    translateX(4px);
+}
+
+
+/* =====================================
+   Tablet
+===================================== */
+
+@media (max-width: 700px) {
+
+  .confirm-header-inner {
+    grid-template-columns:
+      auto 1fr;
+  }
+
+  .confirm-brand {
+    justify-content:
+      flex-end;
+  }
+
+  .confirm-header-space {
+    display: none;
+  }
+
+}
+
+
+/* =====================================
+   Mobile
+===================================== */
+
+@media (max-width: 520px) {
+
+  .confirm-header-inner {
+    padding:
+      12px 15px;
+  }
+
+
+  .confirm-brand-icon {
+    display: none;
+  }
+
+
+  .confirm-brand h1 {
+    font-size: 12px;
+  }
+
+
+  .confirm-brand p {
+    display: none;
+  }
+
+
+  .confirm-back-home {
+    padding:
+      7px 8px !important;
+
+    font-size:
+      11px !important;
+  }
+
+
+  .confirm-main {
+    padding:
+      32px 15px
+      50px;
+  }
+
+
+  .progress-labels {
+    display: none;
+  }
+
+
+  .confirm-title h2 {
+    font-size: 27px;
+  }
+
+
+  .confirm-card {
+    padding:
+      22px 18px;
+  }
+
+
+  .confirm-card-header {
+    grid-template-columns:
+      auto 1fr auto;
+  }
+
+
+  .confirm-grid,
+  .lifestyle-confirm-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .confirm-actions {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .confirm-submit-button {
+    grid-row: 1;
+  }
+
+
+  .confirm-prev-button {
+    grid-row: 2;
+  }
+
+}

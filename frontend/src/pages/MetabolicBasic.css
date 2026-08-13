@@ -1,0 +1,1105 @@
+/* =====================================
+   Page
+===================================== */
+
+.basic-page {
+  min-height: 100vh;
+
+  font-family:
+    "Microsoft JhengHei",
+    "Noto Sans TC",
+    Arial,
+    sans-serif;
+
+  color: #1d2939;
+
+  background:
+    radial-gradient(
+      circle at 90% 8%,
+      rgba(40, 169, 157, 0.12),
+      transparent 26%
+    ),
+    linear-gradient(
+      180deg,
+      #f4fbfa 0%,
+      #ffffff 45%,
+      #f7fafc 100%
+    );
+}
+
+
+/* =====================================
+   Header
+===================================== */
+
+.basic-header {
+  background: rgba(255, 255, 255, 0.93);
+
+  border-bottom: 1px solid #e5ecef;
+
+  backdrop-filter: blur(12px);
+}
+
+
+.basic-header-inner {
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  padding: 15px 28px;
+
+  display: grid;
+
+  grid-template-columns: 1fr auto 1fr;
+
+  align-items: center;
+}
+
+
+.basic-back-home {
+  width: fit-content !important;
+
+  padding: 9px 13px !important;
+
+  border: none !important;
+
+  border-radius: 9px !important;
+
+  background: transparent !important;
+
+  color: #687689 !important;
+
+  font-size: 13px !important;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.basic-back-home:hover {
+  color: #17877e !important;
+
+  background: #ecf8f6 !important;
+}
+
+
+.basic-brand {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 11px;
+}
+
+
+.basic-brand-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  color: #17897f;
+
+  background: #e2f6f2;
+
+  font-size: 18px;
+}
+
+
+.basic-brand > div:last-child {
+  text-align: left;
+}
+
+
+.basic-brand h1 {
+  margin: 0;
+
+  padding: 0;
+
+  font-size: 15px;
+
+  font-weight: 750;
+
+  color: #263345;
+}
+
+
+.basic-brand p {
+  margin: 2px 0 0;
+
+  font-size: 9px;
+
+  color: #a1acb8;
+}
+
+
+.basic-header-space {
+  width: 1px;
+}
+
+
+/* =====================================
+   Main
+===================================== */
+
+.basic-main {
+  width: 100%;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 42px 24px 65px;
+}
+
+
+/* =====================================
+   Progress
+===================================== */
+
+.screening-progress {
+  margin-bottom: 44px;
+}
+
+
+.progress-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  color: #788597;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+.progress-bar-bg {
+  width: 100%;
+
+  height: 7px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: #e7eeef;
+}
+
+
+.progress-bar-fill {
+  height: 100%;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #18857f,
+      #2bae9f
+    );
+
+  transition: width 0.3s ease;
+}
+
+
+.progress-bar-fill.step-one {
+  width: 20%;
+}
+
+
+.progress-labels {
+  margin-top: 12px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  color: #a1acb8;
+
+  font-size: 10px;
+}
+
+
+.progress-labels span {
+  text-align: center;
+}
+
+
+.progress-labels span:first-child {
+  text-align: left;
+}
+
+
+.progress-labels span:last-child {
+  text-align: right;
+}
+
+
+.progress-labels .active {
+  color: #16877d;
+
+  font-weight: 750;
+}
+
+
+/* =====================================
+   Title
+===================================== */
+
+.basic-title {
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+
+.basic-step-badge {
+  width: fit-content;
+
+  margin: 0 auto 10px;
+
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  color: #18877e;
+
+  background: #e7f7f4;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+}
+
+
+.basic-title h2 {
+  margin: 0;
+
+  padding: 0;
+
+  border: none;
+
+  color: #202d3e;
+
+  font-size: 31px;
+
+  font-weight: 800;
+}
+
+
+.basic-title p {
+  margin: 10px auto 0;
+
+  color: #7b8898;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+
+/* =====================================
+   Form Card
+===================================== */
+
+.basic-form-card {
+  padding: 34px 36px;
+
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border: 1px solid #dee7ea;
+
+  box-shadow:
+    0 14px 38px rgba(34, 55, 70, 0.07);
+}
+
+
+.basic-card-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin-bottom: 28px;
+}
+
+
+.basic-heading-icon {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  color: #16877d;
+
+  background: #e3f6f2;
+
+  font-size: 12px;
+
+  font-weight: 800;
+}
+
+
+.basic-card-heading > div:last-child {
+  text-align: left;
+}
+
+
+.basic-card-heading span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #26a399;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+
+.basic-card-heading h3 {
+  margin: 0;
+
+  color: #2a3747;
+
+  font-size: 18px;
+
+  font-weight: 750;
+}
+
+
+/* =====================================
+   Form Grid
+===================================== */
+
+.basic-form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 23px;
+}
+
+
+.basic-field {
+  text-align: left;
+}
+
+
+.basic-field > label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #3a4757;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+.basic-field > label > span {
+  margin-left: 4px;
+
+  color: #e26b6b;
+}
+
+
+/* =====================================
+   Number Input
+===================================== */
+
+.input-unit-wrapper {
+  position: relative;
+}
+
+
+.basic-field .input-unit-wrapper input {
+  width: 100%;
+
+  height: 49px;
+
+  padding: 0 65px 0 14px;
+
+  border: 1px solid #d7e1e5;
+
+  border-radius: 11px;
+
+  outline: none;
+
+  background: #fbfcfd;
+
+  color: #334155;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.basic-field .input-unit-wrapper input:focus {
+  background: #ffffff;
+
+  border-color: #54b9af;
+
+  box-shadow:
+    0 0 0 4px rgba(40, 169, 157, 0.1);
+}
+
+
+.basic-field .input-unit-wrapper input::placeholder {
+  color: #b1bac4;
+}
+
+
+.input-unit {
+  position: absolute;
+
+  right: 14px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: #8996a5;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  pointer-events: none;
+}
+
+
+/* =====================================
+   Gender Radio
+===================================== */
+
+.gender-radio-group {
+  width: 100%;
+
+  min-height: 49px;
+
+  padding: 0 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 30px;
+
+  border: 1px solid #d7e1e5;
+
+  border-radius: 11px;
+
+  background: #fbfcfd;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.gender-radio-group:focus-within {
+  border-color: #54b9af;
+
+  box-shadow:
+    0 0 0 4px rgba(40, 169, 157, 0.1);
+
+  background: #ffffff;
+}
+
+
+.gender-radio {
+  position: relative;
+
+  margin: 0 !important;
+
+  display: flex !important;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #657386 !important;
+
+  font-size: 13px !important;
+
+  font-weight: 600 !important;
+
+  cursor: pointer;
+
+  user-select: none;
+}
+
+
+/* 隱藏瀏覽器原本的 radio */
+
+.gender-radio input[type="radio"] {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+/* 自訂 radio 外圈 */
+
+.radio-circle {
+  position: relative;
+
+  width: 18px;
+  height: 18px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 2px solid #bdc9d0;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+/* Hover */
+
+.gender-radio:hover .radio-circle {
+  border-color: #61bcb3;
+}
+
+
+/* 選取 */
+
+.gender-radio.selected {
+  color: #177f77 !important;
+}
+
+
+.gender-radio.selected .radio-circle {
+  border-color: #28a99e;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(40, 169, 158, 0.1);
+}
+
+
+/* Radio 中間圓點 */
+
+.gender-radio.selected .radio-circle::after {
+  content: "";
+
+  width: 8px;
+  height: 8px;
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: #28a99e;
+}
+
+
+/* 男女符號 */
+
+.gender-symbol {
+  color: #82909f;
+
+  font-size: 17px;
+
+  line-height: 1;
+}
+
+
+.gender-radio.selected .gender-symbol {
+  color: #18877e;
+}
+
+
+/* =====================================
+   Error
+===================================== */
+
+.field-error {
+  margin: 6px 0 0;
+
+  color: #d76161;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+/* =====================================
+   BMI Preview
+===================================== */
+
+.bmi-preview {
+  margin-top: 28px;
+
+  padding: 20px 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f0faf8,
+      #f8fcfb
+    );
+
+  border: 1px solid #d8ebe7;
+}
+
+
+.bmi-icon {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #17827e,
+      #2aa99e
+    );
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+.bmi-content {
+  flex: 1;
+
+  text-align: left;
+}
+
+
+.bmi-title-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+.bmi-content h4 {
+  margin: 0;
+
+  color: #34504e;
+
+  font-size: 13px;
+
+  font-weight: 750;
+}
+
+
+.bmi-content p {
+  margin: 5px 0 0;
+
+  color: #82938f;
+
+  font-size: 11px;
+}
+
+
+.bmi-result {
+  margin-top: 4px;
+
+  display: flex;
+
+  align-items: baseline;
+
+  gap: 5px;
+}
+
+
+.bmi-result strong {
+  color: #17867d;
+
+  font-size: 25px;
+
+  font-weight: 800;
+}
+
+
+.bmi-result span {
+  color: #899791;
+
+  font-size: 10px;
+}
+
+
+.bmi-status {
+  padding: 4px 9px;
+
+  border-radius: 999px;
+
+  background: #dff3ed;
+
+  color: #178276;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+
+/* =====================================
+   Privacy / Information Note
+===================================== */
+
+.basic-privacy-note {
+  margin-top: 20px;
+
+  padding: 14px 16px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  border-radius: 11px;
+
+  background: #f7f9fb;
+
+  border: 1px solid #e5eaee;
+}
+
+
+.privacy-icon {
+  width: 21px;
+  height: 21px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e7ebef;
+
+  color: #768496;
+
+  font-family: Georgia, serif;
+
+  font-size: 12px;
+
+  font-weight: bold;
+}
+
+
+.basic-privacy-note p {
+  margin: 1px 0 0;
+
+  text-align: left;
+
+  color: #84909e;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+/* =====================================
+   Actions
+===================================== */
+
+.basic-actions {
+  margin-top: 29px;
+
+  display: grid;
+
+  grid-template-columns:
+    160px 1fr;
+
+  gap: 13px;
+}
+
+
+.basic-prev-button,
+.basic-next-button {
+  min-height: 50px;
+
+  border-radius: 12px !important;
+
+  font-family: inherit;
+
+  font-size: 13px !important;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.basic-prev-button {
+  width: 100% !important;
+
+  color: #657487 !important;
+
+  background: #ffffff !important;
+
+  border: 1px solid #d7e0e6 !important;
+}
+
+
+.basic-prev-button:hover {
+  background: #f7f9fa !important;
+
+  color: #405164 !important;
+}
+
+
+.basic-next-button {
+  width: 100% !important;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 9px;
+
+  color: #ffffff !important;
+
+  border: none !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #157c81,
+      #28aa9e
+    ) !important;
+
+  box-shadow:
+    0 8px 21px rgba(38, 160, 151, 0.2);
+}
+
+
+.basic-next-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 25px rgba(38, 160, 151, 0.28);
+}
+
+
+.basic-next-button span {
+  font-size: 18px;
+
+  transition: transform 0.2s ease;
+}
+
+
+.basic-next-button:hover span {
+  transform: translateX(4px);
+}
+
+
+/* =====================================
+   Tablet
+===================================== */
+
+@media (max-width: 700px) {
+
+  .basic-header-inner {
+    grid-template-columns:
+      auto 1fr;
+  }
+
+  .basic-brand {
+    justify-content: flex-end;
+  }
+
+  .basic-header-space {
+    display: none;
+  }
+
+  .basic-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =====================================
+   Mobile
+===================================== */
+
+@media (max-width: 520px) {
+
+  .basic-header-inner {
+    padding: 12px 15px;
+  }
+
+
+  .basic-brand-icon {
+    display: none;
+  }
+
+
+  .basic-brand h1 {
+    font-size: 12px;
+  }
+
+
+  .basic-brand p {
+    display: none;
+  }
+
+
+  .basic-back-home {
+    padding: 7px 8px !important;
+  }
+
+
+  .basic-main {
+    padding:
+      32px 15px
+      50px;
+  }
+
+
+  .progress-labels {
+    display: none;
+  }
+
+
+  .basic-title h2 {
+    font-size: 27px;
+  }
+
+
+  .basic-form-card {
+    padding:
+      25px 19px;
+  }
+
+
+  .gender-radio-group {
+    gap: 20px;
+
+    padding: 0 13px;
+  }
+
+
+  .bmi-preview {
+    align-items: flex-start;
+  }
+
+
+  .bmi-title-row {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .basic-actions {
+    grid-template-columns: 1fr;
+  }
+
+
+  .basic-next-button {
+    grid-row: 1;
+  }
+
+
+  .basic-prev-button {
+    grid-row: 2;
+  }
+
+}

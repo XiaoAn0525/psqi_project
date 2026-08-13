@@ -1,0 +1,952 @@
+/* ========================================
+   頁面
+======================================== */
+
+.metabolic-intro-page {
+  min-height: 100vh;
+
+  font-family:
+    "Microsoft JhengHei",
+    "Noto Sans TC",
+    Arial,
+    sans-serif;
+
+  color: #1b2938;
+
+  background:
+    radial-gradient(
+      circle at 85% 5%,
+      rgba(42, 172, 158, 0.12),
+      transparent 24%
+    ),
+    linear-gradient(
+      180deg,
+      #f4fbfa 0%,
+      #ffffff 38%,
+      #f8fafc 100%
+    );
+}
+
+
+/* ========================================
+   Header
+======================================== */
+
+.metabolic-header {
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  border-bottom: 1px solid #e5ecef;
+
+  backdrop-filter: blur(12px);
+}
+
+
+.metabolic-header-inner {
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  padding: 15px 28px;
+
+  display: grid;
+
+  grid-template-columns: 1fr auto 1fr;
+
+  align-items: center;
+}
+
+
+.back-home-button {
+  width: fit-content !important;
+
+  padding: 9px 13px !important;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  border: none !important;
+
+  border-radius: 9px !important;
+
+  background: transparent !important;
+
+  color: #667487 !important;
+
+  font-size: 13px !important;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.back-home-button:hover {
+  color: #16877e !important;
+
+  background: #edf8f6 !important;
+}
+
+
+.back-home-button span {
+  font-size: 17px;
+}
+
+
+.metabolic-brand {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 11px;
+}
+
+
+.metabolic-brand-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  color: #168a80;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e2f7f3,
+      #d4f0ec
+    );
+
+  font-size: 19px;
+}
+
+
+.metabolic-brand > div:last-child {
+  text-align: left;
+}
+
+
+.metabolic-brand h1 {
+  margin: 0;
+
+  padding: 0;
+
+  font-size: 15px;
+
+  font-weight: 750;
+
+  color: #253244;
+}
+
+
+.metabolic-brand p {
+  margin: 2px 0 0;
+
+  font-size: 9px;
+
+  color: #a0aab7;
+}
+
+
+.header-placeholder {
+  width: 1px;
+}
+
+
+/* ========================================
+   Main
+======================================== */
+
+.metabolic-intro-main {
+  width: 100%;
+
+  max-width: 960px;
+
+  margin: 0 auto;
+
+  padding: 61px 25px 65px;
+}
+
+
+/* ========================================
+   Hero
+======================================== */
+
+.intro-hero {
+  max-width: 720px;
+
+  margin: 0 auto 40px;
+
+  text-align: center;
+}
+
+
+.intro-badge {
+  width: fit-content;
+
+  margin: 0 auto 16px;
+
+  padding: 6px 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  border-radius: 999px;
+
+  color: #16877d;
+
+  background: #e6f7f4;
+
+  border: 1px solid #d0eee9;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+
+.intro-badge span {
+  width: 6px;
+  height: 6px;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: #27a99d;
+}
+
+
+.intro-hero h2 {
+  margin: 0;
+
+  padding: 0;
+
+  border: none;
+
+  color: #1d2939;
+
+  font-size: 38px;
+
+  font-weight: 800;
+
+  line-height: 1.35;
+}
+
+
+.intro-hero h2 span {
+  display: block;
+
+  color: #1b9186;
+}
+
+
+.intro-hero > p {
+  max-width: 600px;
+
+  margin: 17px auto 0;
+
+  color: #778597;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+
+/* ========================================
+   主說明卡
+======================================== */
+
+.intro-card {
+  margin: 0;
+
+  padding: 34px 37px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border: 1px solid #dce7e9;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 13px 37px rgba(31, 53, 68, 0.07);
+}
+
+
+.intro-card-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 23px;
+}
+
+
+.heading-icon {
+  width: 43px;
+  height: 43px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  color: #16887e;
+
+  background: #e3f6f3;
+
+  font-family: Georgia, serif;
+
+  font-size: 20px;
+
+  font-weight: bold;
+}
+
+
+.intro-card-heading > div:last-child {
+  text-align: left;
+}
+
+
+.intro-card-heading span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #27a69b;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.6px;
+}
+
+
+.intro-card-heading h3 {
+  margin: 0;
+
+  color: #253244;
+
+  font-size: 20px;
+
+  font-weight: 750;
+}
+
+
+.intro-description {
+  padding:
+    20px 22px;
+
+  margin-bottom: 27px;
+
+  border-radius: 13px;
+
+  background: #f5faf9;
+
+  border: 1px solid #e4efed;
+}
+
+
+.intro-description p {
+  margin: 0;
+
+  color: #566577;
+
+  font-size: 14px;
+
+  line-height: 1.9;
+}
+
+
+.intro-description p + p {
+  margin-top: 9px;
+}
+
+
+.intro-description strong {
+  color: #17877d;
+
+  font-weight: 750;
+}
+
+
+/* ========================================
+   重點
+======================================== */
+
+.intro-points {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+}
+
+
+.intro-point {
+  min-height: 137px;
+
+  padding: 18px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  border-radius: 14px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.intro-point:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(31, 50, 68, 0.06);
+}
+
+
+.positive-point {
+  background: #f1faf7;
+
+  border: 1px solid #d8eee8;
+}
+
+
+.warning-point {
+  background: #fff9ef;
+
+  border: 1px solid #f1e4c9;
+}
+
+
+.data-point {
+  background: #f3f7fc;
+
+  border: 1px solid #dce7f2;
+}
+
+
+.point-icon {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  font-weight: 800;
+}
+
+
+.positive-point .point-icon {
+  color: #168b7f;
+
+  background: #dff3ed;
+}
+
+
+.warning-point .point-icon {
+  color: #b68128;
+
+  background: #f9ebcc;
+}
+
+
+.data-point .point-icon {
+  color: #5579a4;
+
+  background: #e2ebf5;
+}
+
+
+.point-text {
+  text-align: left;
+}
+
+
+.point-text h4 {
+  margin: 1px 0 7px;
+
+  color: #344153;
+
+  font-size: 14px;
+
+  font-weight: 750;
+}
+
+
+.point-text p {
+  margin: 0;
+
+  color: #768294;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   填寫資料預覽
+======================================== */
+
+.input-preview {
+  margin-top: 30px;
+
+  padding: 30px 35px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(248, 251, 252, 0.88);
+
+  border: 1px solid #e2e9ed;
+}
+
+
+.preview-heading {
+  margin-bottom: 24px;
+
+  text-align: left;
+}
+
+
+.preview-heading > span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #23a095;
+
+  font-size: 10px;
+
+  font-weight: 750;
+
+  letter-spacing: 1px;
+}
+
+
+.preview-heading h3 {
+  margin: 0;
+
+  color: #2c3949;
+
+  font-size: 19px;
+
+  font-weight: 750;
+}
+
+
+.preview-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 12px;
+}
+
+
+.preview-item {
+  padding: 17px 15px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  border-radius: 13px;
+
+  text-align: left;
+
+  background: white;
+
+  border: 1px solid #e5ebef;
+}
+
+
+.preview-number {
+  width: fit-content;
+
+  color: #2aa79d;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+.preview-item h4 {
+  margin: 0 0 5px;
+
+  color: #3a4757;
+
+  font-size: 13px;
+
+  font-weight: 750;
+}
+
+
+.preview-item p {
+  margin: 0;
+
+  color: #8490a0;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+
+/* ========================================
+   健檢提醒
+======================================== */
+
+.medical-report-notice {
+  margin-top: 25px;
+
+  padding: 22px 25px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 16px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef8f7,
+      #f8fcfb
+    );
+
+  border: 1px solid #d6e9e6;
+}
+
+
+.medical-notice-icon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #16857d,
+      #2aaa9d
+    );
+
+  font-size: 22px;
+
+  font-weight: 400;
+}
+
+
+.medical-notice-content {
+  text-align: left;
+}
+
+
+.medical-notice-content h3 {
+  margin: 0 0 7px;
+
+  color: #31524f;
+
+  font-size: 14px;
+
+  font-weight: 750;
+}
+
+
+.medical-notice-content p {
+  margin: 0;
+
+  color: #718582;
+
+  font-size: 12px;
+
+  line-height: 1.75;
+}
+
+
+.medical-notice-content strong {
+  color: #247b73;
+
+  font-weight: 750;
+}
+
+
+/* ========================================
+   Buttons
+======================================== */
+
+.intro-actions {
+  margin-top: 32px;
+
+  display: grid;
+
+  grid-template-columns:
+    180px 1fr;
+
+  gap: 14px;
+}
+
+
+.intro-back-button,
+.intro-start-button {
+  min-height: 50px;
+
+  padding: 12px 20px;
+
+  border-radius: 12px;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.intro-back-button {
+  width: 100% !important;
+
+  color: #657386 !important;
+
+  background: #ffffff !important;
+
+  border: 1px solid #d9e1e7 !important;
+}
+
+
+.intro-back-button:hover {
+  color: #405166 !important;
+
+  background: #f7f9fa !important;
+}
+
+
+.intro-start-button {
+  width: 100% !important;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: white !important;
+
+  border: none !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #147c82,
+      #27a99d
+    ) !important;
+
+  box-shadow:
+    0 8px 22px rgba(31, 161, 151, 0.2);
+}
+
+
+.intro-start-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 27px rgba(31, 161, 151, 0.28);
+}
+
+
+.start-arrow {
+  font-size: 19px;
+
+  transition: transform 0.2s ease;
+}
+
+
+.intro-start-button:hover .start-arrow {
+  transform: translateX(5px);
+}
+
+
+.intro-bottom-note {
+  margin-top: 13px;
+
+  text-align: center;
+
+  color: #a1aab5;
+
+  font-size: 10px;
+}
+
+
+/* ========================================
+   Tablet
+======================================== */
+
+@media (max-width: 800px) {
+
+  .metabolic-header-inner {
+    grid-template-columns:
+      auto 1fr;
+  }
+
+  .metabolic-brand {
+    justify-content: flex-end;
+  }
+
+  .header-placeholder {
+    display: none;
+  }
+
+  .intro-points {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* ========================================
+   Mobile
+======================================== */
+
+@media (max-width: 550px) {
+
+  .metabolic-header-inner {
+    padding:
+      12px 15px;
+  }
+
+  .metabolic-brand-icon {
+    display: none;
+  }
+
+  .metabolic-brand h1 {
+    font-size: 12px;
+  }
+
+  .metabolic-brand p {
+    display: none;
+  }
+
+  .back-home-button {
+    padding:
+      7px 8px !important;
+  }
+
+  .metabolic-intro-main {
+    padding:
+      42px 16px
+      50px;
+  }
+
+  .intro-hero h2 {
+    font-size: 30px;
+  }
+
+  .intro-card {
+    padding:
+      25px 20px;
+  }
+
+  .intro-description {
+    padding:
+      17px;
+  }
+
+  .preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .input-preview {
+    padding:
+      24px 20px;
+  }
+
+  .preview-item {
+    flex-direction: row;
+
+    align-items: flex-start;
+  }
+
+  .intro-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-start-button {
+    grid-row: 1;
+  }
+
+  .intro-back-button {
+    grid-row: 2;
+  }
+
+}

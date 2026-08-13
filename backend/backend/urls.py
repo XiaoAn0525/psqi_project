@@ -15,9 +15,52 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+
+from psqi.views import (
+    submit_psqi,
+    list_psqi,
+    predict_metabolic,
+)
+
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("api/psqi/", include("psqi.urls")),
+
+    # =========================
+    # Django Admin
+    # =========================
+
+    path(
+        "admin/",
+        admin.site.urls
+    ),
+
+
+    # =========================
+    # PSQI 睡眠品質問卷
+    # =========================
+
+    path(
+        "api/psqi/submit/",
+        submit_psqi,
+        name="submit_psqi"
+    ),
+
+    path(
+        "api/psqi/records/",
+        list_psqi,
+        name="list_psqi"
+    ),
+
+
+    # =========================
+    # 代謝症候群風險篩檢
+    # =========================
+
+    path(
+        "api/metabolic/predict/",
+        predict_metabolic,
+        name="predict_metabolic"
+    ),
+
 ]

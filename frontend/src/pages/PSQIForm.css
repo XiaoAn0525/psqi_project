@@ -1,0 +1,1005 @@
+/* ==================================================
+   整體頁面
+================================================== */
+
+.psqi-page {
+  min-height: 100vh;
+  padding: 50px 20px 70px;
+
+  font-family:
+    "Microsoft JhengHei",
+    "Noto Sans TC",
+    Arial,
+    sans-serif;
+
+  color: #253244;
+
+  background:
+    radial-gradient(
+      circle at 88% 5%,
+      rgba(90, 108, 175, 0.12),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 8% 45%,
+      rgba(54, 177, 163, 0.07),
+      transparent 25%
+    ),
+    linear-gradient(
+      180deg,
+      #f7f9fd 0%,
+      #ffffff 45%,
+      #f8fafc 100%
+    );
+}
+
+
+.psqi-wrapper {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+
+/* ==================================================
+   Hero
+================================================== */
+
+.psqi-hero {
+  padding: 34px 38px;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  border-radius: 24px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #46578f 0%,
+      #6675ad 55%,
+      #7584bb 100%
+    );
+
+  box-shadow:
+    0 18px 45px
+    rgba(66, 82, 139, 0.20);
+}
+
+
+.psqi-hero-icon {
+  width: 65px;
+  height: 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 19px;
+
+  background:
+    rgba(255, 255, 255, 0.15);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.15);
+
+  font-size: 34px;
+}
+
+
+.psqi-eyebrow {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color:
+    rgba(255, 255, 255, 0.70);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.7px;
+}
+
+
+.psqi-hero h1 {
+  margin: 0;
+
+  color: white;
+
+  font-size: 30px;
+  font-weight: 800;
+
+  line-height: 1.35;
+}
+
+
+.psqi-hero p {
+  max-width: 600px;
+
+  margin: 7px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.82);
+
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+
+/* ==================================================
+   填寫提醒
+================================================== */
+
+.psqi-notice {
+  margin-top: 17px;
+
+  padding: 15px 18px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 11px;
+
+  border:
+    1px solid #dde4ef;
+
+  border-radius: 13px;
+
+  background:
+    rgba(255, 255, 255, 0.85);
+}
+
+
+.psqi-notice-icon {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  color: #5868a4;
+
+  background: #edf0fa;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+
+.psqi-notice strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #526074;
+
+  font-size: 11px;
+}
+
+
+.psqi-notice p {
+  margin: 0;
+
+  color: #8490a0;
+
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+
+/* ==================================================
+   Form
+================================================== */
+
+.psqi-form {
+  margin-top: 35px;
+}
+
+
+/* ==================================================
+   Section
+================================================== */
+
+.psqi-section {
+  margin-bottom: 34px;
+}
+
+
+.psqi-section-title {
+  margin-bottom: 14px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  text-align: left;
+}
+
+
+.psqi-step-number {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  color: #5969a4;
+
+  background: #ebeff9;
+
+  border: 1px solid #dce2f1;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+
+.psqi-section-title span {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: #6d7bb0;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+
+.psqi-section-title h2 {
+  margin: 0;
+  padding: 0;
+
+  border: none;
+
+  color: #2f3b4d;
+
+  font-size: 19px;
+  font-weight: 800;
+}
+
+
+.psqi-section-title p {
+  margin: 3px 0 0;
+
+  color: #909aa7;
+
+  font-size: 10px;
+}
+
+
+/* ==================================================
+   Card
+================================================== */
+
+.psqi-card {
+  padding: 30px 32px;
+
+  border:
+    1px solid #e1e6ed;
+
+  border-radius: 20px;
+
+  background:
+    rgba(255, 255, 255, 0.96);
+
+  box-shadow:
+    0 10px 30px
+    rgba(40, 52, 77, 0.055);
+}
+
+
+/* ==================================================
+   Question
+================================================== */
+
+.psqi-question {
+  margin-bottom: 27px;
+
+  text-align: left;
+}
+
+
+.psqi-question:last-child {
+  margin-bottom: 0;
+}
+
+
+.psqi-question > label {
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color: #39475a;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1.6;
+}
+
+
+.question-number {
+  width: 25px;
+  height: 25px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  color: #5c6ba5;
+
+  background: #edf0fa;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+
+/* ==================================================
+   Input / Select
+================================================== */
+
+.psqi-question input[type="time"],
+.psqi-question input[type="number"],
+.psqi-question select {
+  width: 100%;
+  height: 51px;
+
+  padding: 0 15px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid #d9e0e8;
+
+  border-radius: 11px;
+
+  outline: none;
+
+  color: #3e4b5d;
+
+  background: #fbfcfe;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.psqi-question select {
+  cursor: pointer;
+}
+
+
+.psqi-question input:focus,
+.psqi-question select:focus {
+  border-color: #7a88bc;
+
+  background: white;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(94, 108, 169, 0.09);
+}
+
+
+.psqi-question input::placeholder {
+  color: #b0b9c5;
+}
+
+
+/* ==================================================
+   Input Unit
+================================================== */
+
+.psqi-input-unit {
+  position: relative;
+}
+
+
+.psqi-input-unit input {
+  padding-right: 65px !important;
+}
+
+
+.psqi-input-unit > span {
+  position: absolute;
+
+  right: 16px;
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  color: #8894a3;
+
+  font-size: 11px;
+
+  pointer-events: none;
+}
+
+
+/* ==================================================
+   Quality choices
+================================================== */
+
+.psqi-choice-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+
+.psqi-choice {
+  min-height: 62px;
+
+  padding: 12px;
+
+  display: flex !important;
+  align-items: center;
+
+  gap: 9px;
+
+  margin: 0 !important;
+
+  border:
+    1px solid #dfe4ec;
+
+  border-radius: 12px;
+
+  background: #fbfcfd;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.psqi-choice:hover {
+  transform:
+    translateY(-1px);
+
+  border-color: #b6bfd9;
+
+  background: #f7f8fc;
+}
+
+
+.psqi-choice.selected {
+  border-color: #7786ba;
+
+  background: #eef1fa;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(91, 106, 167, 0.07);
+}
+
+
+.psqi-choice input {
+  position: absolute;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+.choice-radio {
+  width: 17px;
+  height: 17px;
+
+  flex-shrink: 0;
+
+  border:
+    2px solid #b9c1ce;
+
+  border-radius: 50%;
+
+  background: white;
+
+  position: relative;
+}
+
+
+.psqi-choice.selected .choice-radio {
+  border-color: #6575ad;
+}
+
+
+.psqi-choice.selected .choice-radio::after {
+  content: "";
+
+  width: 7px;
+  height: 7px;
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: #6575ad;
+}
+
+
+.choice-text {
+  color: #667386;
+
+  font-size: 11px;
+  font-weight: 650;
+}
+
+
+.psqi-choice.selected .choice-text {
+  color: #52619a;
+}
+
+
+/* ==================================================
+   Disturbance
+================================================== */
+
+.psqi-disturbance-question {
+  padding-bottom: 23px;
+
+  border-bottom:
+    1px solid #eef1f4;
+}
+
+
+.psqi-disturbance-question:last-child {
+  padding-bottom: 0;
+
+  border-bottom: none;
+}
+
+
+/* ==================================================
+   Submit
+================================================== */
+
+.psqi-submit-area {
+  margin-top: 8px;
+
+  padding: 22px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border:
+    1px solid #dfe5ed;
+
+  border-radius: 17px;
+
+  background: white;
+
+  box-shadow:
+    0 8px 25px
+    rgba(38, 52, 75, 0.05);
+
+  text-align: left;
+}
+
+
+.psqi-submit-area strong {
+  display: block;
+
+  color: #354255;
+
+  font-size: 13px;
+}
+
+
+.psqi-submit-area p {
+  margin: 4px 0 0;
+
+  color: #8b96a4;
+
+  font-size: 10px;
+}
+
+
+.psqi-submit-button {
+  width: auto !important;
+  min-width: 190px;
+  min-height: 49px;
+
+  padding: 0 21px !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border: none !important;
+  border-radius: 11px !important;
+
+  color: white !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #52629e,
+      #7483ba
+    ) !important;
+
+  font-family: inherit;
+  font-size: 12px !important;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px
+    rgba(77, 92, 151, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.psqi-submit-button:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 12px 25px
+    rgba(77, 92, 151, 0.28);
+}
+
+
+/* ==================================================
+   Result
+================================================== */
+
+.psqi-result {
+  margin-top: 30px;
+
+  padding: 25px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 15px;
+
+  border-radius: 18px;
+
+  text-align: left;
+}
+
+
+.psqi-result-good {
+  background: #eff9f6;
+
+  border:
+    1px solid #d5ece6;
+}
+
+
+.psqi-result-warning {
+  background: #fff8ec;
+
+  border:
+    1px solid #efdfbf;
+}
+
+
+.psqi-result-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+
+.psqi-result-good .psqi-result-icon {
+  color: #258b78;
+  background: #dcefe9;
+}
+
+
+.psqi-result-warning .psqi-result-icon {
+  color: #ad7a27;
+  background: #f5e5c5;
+}
+
+
+.psqi-result-label {
+  color: #8995a4;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+.psqi-result h2 {
+  margin: 3px 0 5px;
+  padding: 0;
+
+  border: none;
+
+  color: #334154;
+
+  font-size: 20px;
+}
+
+
+.psqi-result p {
+  margin: 0;
+
+  color: #788596;
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+
+/* ==================================================
+   Disclaimer
+================================================== */
+
+.psqi-disclaimer {
+  margin-top: 22px;
+
+  padding: 15px 17px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  border-radius: 12px;
+
+  background: #f7f8fa;
+
+  border:
+    1px solid #e5e9ee;
+}
+
+
+.psqi-disclaimer > span {
+  width: 23px;
+  height: 23px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 7px;
+
+  color: #788596;
+
+  background: #e9edf1;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+
+.psqi-disclaimer p {
+  margin: 1px 0 0;
+
+  color: #8c96a3;
+
+  font-size: 9px;
+
+  line-height: 1.7;
+
+  text-align: left;
+}
+
+
+/* ==================================================
+   Tablet
+================================================== */
+
+@media (max-width: 750px) {
+
+  .psqi-choice-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* ==================================================
+   Mobile
+================================================== */
+
+@media (max-width: 520px) {
+
+  .psqi-page {
+    padding:
+      25px 14px
+      45px;
+  }
+
+
+  .psqi-hero {
+    padding: 25px 21px;
+
+    align-items: flex-start;
+  }
+
+
+  .psqi-hero-icon {
+    width: 47px;
+    height: 47px;
+
+    border-radius: 14px;
+
+    font-size: 24px;
+  }
+
+
+  .psqi-hero h1 {
+    font-size: 22px;
+  }
+
+
+  .psqi-hero p {
+    font-size: 10px;
+  }
+
+
+  .psqi-card {
+    padding: 23px 18px;
+  }
+
+
+  .psqi-choice-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .psqi-submit-area {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .psqi-submit-button {
+    width: 100% !important;
+  }
+
+}
+
+/* ==================================================
+   回首頁按鈕
+================================================== */
+
+.psqi-back-area {
+  margin-bottom: 16px;
+
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+.psqi-back-button {
+  padding: 9px 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  border: 1px solid #dce2ea;
+  border-radius: 10px;
+
+  color: #647188;
+
+  background: rgba(255, 255, 255, 0.85);
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 12px
+    rgba(41, 53, 77, 0.04);
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.psqi-back-button:hover {
+  color: #53629b;
+
+  background: white;
+
+  border-color: #bfc8df;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 15px
+    rgba(60, 73, 119, 0.08);
+}
+
+
+.psqi-back-arrow {
+  font-size: 16px;
+
+  line-height: 1;
+
+  transition: transform 0.2s ease;
+}
+
+
+.psqi-back-button:hover .psqi-back-arrow {
+  transform: translateX(-3px);
+}
