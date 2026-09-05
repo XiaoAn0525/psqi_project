@@ -1,0 +1,259 @@
+{
+  "mapping_version": "codebook-integrated-unapproved-v2.2.0",
+  "codebook_verified": true,
+  "approved": false,
+  "approval_status": "原始題目、代碼與選項已由編碼簿核對；運動與飲食的0–1 rank score尚未經研究團隊核准，部署僅限技術驗證。",
+  "source_documents": [
+    "mj_health_questionnaire_codebook_20250702.xlsx",
+    "field_name_mapping.txt",
+    "field_value_meanings.txt"
+  ],
+  "domains": {
+    "smoking_status": {
+      "question_zh": "您抽煙嗎?",
+      "source_variable": "smokeornot_03",
+      "source_years": "2003–2023",
+      "options": {
+        "never": {
+          "label_zh": "不抽",
+          "original_code": 1,
+          "harmonized_value": "never"
+        },
+        "passive": {
+          "label_zh": "不抽，但經常吸二手煙",
+          "original_code": 2,
+          "harmonized_value": "passive"
+        },
+        "former": {
+          "label_zh": "以前抽，現已戒煙",
+          "original_code": 3,
+          "harmonized_value": "former"
+        },
+        "occasional": {
+          "label_zh": "偶爾抽",
+          "original_code": 4,
+          "harmonized_value": "current"
+        },
+        "daily": {
+          "label_zh": "每天抽",
+          "original_code": 5,
+          "harmonized_value": "current"
+        }
+      }
+    },
+    "drinking_status": {
+      "question_zh": "您喝酒嗎?",
+      "source_variable": "drinkornot_17",
+      "source_years": "2017–2023",
+      "options": {
+        "never_or_lt_weekly": {
+          "label_zh": "不喝或每週少於1次",
+          "original_code": 1,
+          "harmonized_value": "never_or_rare"
+        },
+        "former": {
+          "label_zh": "以前喝，現已戒酒",
+          "original_code": 2,
+          "harmonized_value": "former"
+        },
+        "weekly_1_2": {
+          "label_zh": "每週1–2次",
+          "original_code": 3,
+          "harmonized_value": "current"
+        },
+        "weekly_3_4": {
+          "label_zh": "每週3–4次",
+          "original_code": 4,
+          "harmonized_value": "current"
+        },
+        "weekly_5_6": {
+          "label_zh": "每週5–6次",
+          "original_code": 5,
+          "harmonized_value": "current"
+        },
+        "daily": {
+          "label_zh": "每天喝",
+          "original_code": 6,
+          "harmonized_value": "current"
+        }
+      }
+    },
+    "betel_status": {
+      "question_zh": "您是否嚼檳榔?",
+      "source_variable": "cocohabit_98",
+      "source_years": "2017–2023",
+      "options": {
+        "never": {
+          "label_zh": "不嚼",
+          "original_code": 1,
+          "harmonized_value": "never"
+        },
+        "former": {
+          "label_zh": "以前嚼，現已戒",
+          "original_code": 2,
+          "harmonized_value": "former"
+        },
+        "weekly_1_3": {
+          "label_zh": "每週1–3次",
+          "original_code": 3,
+          "harmonized_value": "current"
+        },
+        "weekly_4_5": {
+          "label_zh": "每週4–5次",
+          "original_code": 4,
+          "harmonized_value": "current"
+        },
+        "weekly_6_or_daily": {
+          "label_zh": "每週6次或每天嚼",
+          "original_code": 5,
+          "harmonized_value": "current"
+        }
+      }
+    },
+    "exercise_frequency": {
+      "question_zh": "您過去兩個禮拜做上述運動的頻率",
+      "source_variable": "firstsportfrequ_17",
+      "source_years": "2017–2023",
+      "options": {
+        "daily_or_more": {
+          "label_zh": "每天1次以上",
+          "original_code": 1,
+          "score_01": 1.0
+        },
+        "weekly_4_6": {
+          "label_zh": "每週4–6次",
+          "original_code": 2,
+          "score_01": 0.75
+        },
+        "weekly_2_3": {
+          "label_zh": "每週2–3次",
+          "original_code": 3,
+          "score_01": 0.5
+        },
+        "weekly_once": {
+          "label_zh": "每週1次",
+          "original_code": 4,
+          "score_01": 0.25
+        },
+        "rare_or_none": {
+          "label_zh": "不運動或每週少於1次",
+          "original_code": 5,
+          "score_01": 0.0
+        }
+      }
+    },
+    "vegetable_intake": {
+      "question_zh": "一天會吃到多少蔬菜量?",
+      "source_variable": "food10_17",
+      "source_years": "2017–2023",
+      "options": {
+        "lt_half_bowl": {
+          "label_zh": "不吃或每天少於半碗",
+          "original_code": 1,
+          "score_01": 0.0
+        },
+        "half_to_one_bowl": {
+          "label_zh": "每天吃半碗–1碗以內",
+          "original_code": 2,
+          "score_01": 0.25
+        },
+        "one_to_1_5_bowls": {
+          "label_zh": "每天吃1碗–1碗半以內",
+          "original_code": 3,
+          "score_01": 0.5
+        },
+        "one_5_to_two_bowls": {
+          "label_zh": "每天吃1碗半–2碗以內",
+          "original_code": 4,
+          "score_01": 0.75
+        },
+        "gte_two_bowls": {
+          "label_zh": "每天吃2碗或以上",
+          "original_code": 5,
+          "score_01": 1.0
+        }
+      }
+    },
+    "fruit_intake": {
+      "question_zh": "您多常吃至少兩份水果?",
+      "source_variable": "food13_17",
+      "source_years": "2017–2023",
+      "options": {
+        "never": {
+          "label_zh": "從來沒有",
+          "original_code": 1,
+          "score_01": 0.0
+        },
+        "occasionally": {
+          "label_zh": "偶爾",
+          "original_code": 2,
+          "score_01": 0.3333333333333333
+        },
+        "often": {
+          "label_zh": "經常",
+          "original_code": 3,
+          "score_01": 0.6666666666666666
+        },
+        "always": {
+          "label_zh": "總是",
+          "original_code": 4,
+          "score_01": 1.0
+        }
+      }
+    },
+    "fried_processed_food": {
+      "question_zh": "您多常吃煎、炸、碳烤、煙燻製品食物?",
+      "source_variable": "food21_17",
+      "source_years": "2017–2023",
+      "options": {
+        "lt_weekly": {
+          "label_zh": "不吃或每週少於1次",
+          "original_code": 1,
+          "score_01": 1.0
+        },
+        "weekly_2_3": {
+          "label_zh": "每週吃2–3次／份",
+          "original_code": 2,
+          "score_01": 0.6666666666666666
+        },
+        "weekly_4_5": {
+          "label_zh": "每週吃4–5次",
+          "original_code": 3,
+          "score_01": 0.3333333333333333
+        },
+        "weekly_6_or_daily": {
+          "label_zh": "每週6次或每天吃",
+          "original_code": 4,
+          "score_01": 0.0
+        }
+      }
+    },
+    "salty_sauce_habit": {
+      "question_zh": "您用餐時，常常沾醬料或辣椒醬嗎?",
+      "source_variable": "food25a_17",
+      "source_years": "2017–2023",
+      "options": {
+        "never": {
+          "label_zh": "從來沒有",
+          "original_code": 1,
+          "score_01": 1.0
+        },
+        "occasionally": {
+          "label_zh": "偶爾",
+          "original_code": 2,
+          "score_01": 0.6666666666666666
+        },
+        "often": {
+          "label_zh": "經常",
+          "original_code": 3,
+          "score_01": 0.3333333333333333
+        },
+        "always": {
+          "label_zh": "總是",
+          "original_code": 4,
+          "score_01": 0.0
+        }
+      }
+    }
+  }
+}

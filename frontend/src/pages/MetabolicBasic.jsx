@@ -7,9 +7,9 @@ function MetabolicBasic() {
 
   const [form, setForm] = useState({
     age: "",
-    gender: "",
-    height: "",
-    weight: "",
+    sex: "",
+    height_cm: "",
+    weight_kg: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -29,8 +29,8 @@ function MetabolicBasic() {
   };
 
   const bmi = useMemo(() => {
-    const heightCm = Number(form.height);
-    const weightKg = Number(form.weight);
+    const heightCm = Number(form.height_cm);
+    const weightKg = Number(form.weight_kg);
 
     if (!heightCm || !weightKg) {
       return null;
@@ -43,7 +43,7 @@ function MetabolicBasic() {
     }
 
     return (weightKg / (heightM * heightM)).toFixed(1);
-  }, [form.height, form.weight]);
+  }, [form.height_cm, form.weight_kg]);
 
   const getBmiStatus = () => {
     if (!bmi) return "";
@@ -60,8 +60,8 @@ function MetabolicBasic() {
     const newErrors = {};
 
     const age = Number(form.age);
-    const height = Number(form.height);
-    const weight = Number(form.weight);
+    const height = Number(form.height_cm);
+    const weight = Number(form.weight_kg);
 
     if (!form.age) {
       newErrors.age = "請輸入年齡";
@@ -69,20 +69,20 @@ function MetabolicBasic() {
       newErrors.age = "請輸入 18～100 歲之間的年齡";
     }
 
-    if (!form.gender) {
-      newErrors.gender = "請選擇性別";
+    if (!form.sex) {
+      newErrors.sex = "請選擇性別";
     }
 
-    if (!form.height) {
-      newErrors.height = "請輸入身高";
+    if (!form.height_cm) {
+      newErrors.height_cm = "請輸入身高";
     } else if (height < 100 || height > 250) {
-      newErrors.height = "請輸入合理的身高範圍";
+      newErrors.height_cm = "請輸入合理的身高範圍";
     }
 
-    if (!form.weight) {
-      newErrors.weight = "請輸入體重";
+    if (!form.weight_kg) {
+      newErrors.weight_kg = "請輸入體重";
     } else if (weight < 25 || weight > 300) {
-      newErrors.weight = "請輸入合理的體重範圍";
+      newErrors.weight_kg = "請輸入合理的體重範圍";
     }
 
     setErrors(newErrors);
@@ -99,9 +99,9 @@ function MetabolicBasic() {
 
     const metabolicData = {
       age: Number(form.age),
-      gender: form.gender,
-      height: Number(form.height),
-      weight: Number(form.weight),
+      sex: form.sex,
+      height_cm: Number(form.height_cm),
+      weight_kg: Number(form.weight_kg),
       bmi: bmi ? Number(bmi) : null,
     };
 
@@ -246,16 +246,16 @@ function MetabolicBasic() {
 
                 <label
                 className={
-                    form.gender === "male"
+                    form.sex === "male"
                     ? "gender-radio selected"
                     : "gender-radio"
                 }
                 >
                 <input
                     type="radio"
-                    name="gender"
+                    name="sex"
                     value="male"
-                    checked={form.gender === "male"}
+                    checked={form.sex === "male"}
                     onChange={handleChange}
                 />
 
@@ -271,16 +271,16 @@ function MetabolicBasic() {
 
                 <label
                 className={
-                    form.gender === "female"
+                    form.sex === "female"
                     ? "gender-radio selected"
                     : "gender-radio"
                 }
                 >
                 <input
                     type="radio"
-                    name="gender"
+                    name="sex"
                     value="female"
-                    checked={form.gender === "female"}
+                    checked={form.sex === "female"}
                     onChange={handleChange}
                 />
 
@@ -295,9 +295,9 @@ function MetabolicBasic() {
 
             </div>
 
-            {errors.gender && (
+            {errors.sex && (
                 <p className="field-error">
-                {errors.gender}
+                {errors.sex}
                 </p>
             )}
 
@@ -314,10 +314,10 @@ function MetabolicBasic() {
               <div className="input-unit-wrapper">
 
                 <input
-                  id="height"
+                  id="height_cm"
                   type="number"
-                  name="height"
-                  value={form.height}
+                  name="height_cm"
+                  value={form.height_cm}
                   onChange={handleChange}
                   placeholder="例如：170"
                   step="0.1"
@@ -327,9 +327,9 @@ function MetabolicBasic() {
 
               </div>
 
-              {errors.height && (
+              {errors.height_cm && (
                 <p className="field-error">
-                  {errors.height}
+                  {errors.height_cm}
                 </p>
               )}
 
@@ -346,10 +346,10 @@ function MetabolicBasic() {
               <div className="input-unit-wrapper">
 
                 <input
-                  id="weight"
+                  id="weight_kg"
                   type="number"
-                  name="weight"
-                  value={form.weight}
+                  name="weight_kg"
+                  value={form.weight_kg}
                   onChange={handleChange}
                   placeholder="例如：65"
                   step="0.1"
@@ -359,9 +359,9 @@ function MetabolicBasic() {
 
               </div>
 
-              {errors.weight && (
+              {errors.weight_kg && (
                 <p className="field-error">
-                  {errors.weight}
+                  {errors.weight_kg}
                 </p>
               )}
 

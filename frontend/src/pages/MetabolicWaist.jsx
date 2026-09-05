@@ -5,7 +5,7 @@ import "./MetabolicWaist.css";
 function MetabolicWaist() {
   const navigate = useNavigate();
 
-  const [waist, setWaist] = useState("");
+  const [waistCm, setWaistCm] = useState("");
   const [skipWaist, setSkipWaist] = useState(false);
   const [error, setError] = useState("");
 
@@ -21,11 +21,11 @@ function MetabolicWaist() {
     const parsedData = JSON.parse(savedData);
 
     if (
-      parsedData.waist !== null &&
-      parsedData.waist !== undefined &&
-      parsedData.waist !== ""
+      parsedData.waistCm !== null &&
+      parsedData.waistCm !== undefined &&
+      parsedData.waistCm !== ""
     ) {
-      setWaist(parsedData.waist);
+      setWaist(parsedData.waistCm);
       setSkipWaist(false);
     } else if (parsedData.waist_skipped === true) {
       setSkipWaist(true);
@@ -33,14 +33,14 @@ function MetabolicWaist() {
   }, []);
 
   const handleWaistChange = (e) => {
-    setWaist(e.target.value);
+    setWaistCm(e.target.value);
     setSkipWaist(false);
     setError("");
   };
 
   const handleSkip = () => {
     setSkipWaist(true);
-    setWaist("");
+    setWaistCm("");
     setError("");
   };
 
@@ -49,12 +49,12 @@ function MetabolicWaist() {
       return true;
     }
 
-    if (!waist) {
+    if (!waistCm) {
       setError("請輸入腰圍，或選擇「不知道／暫不填寫」");
       return false;
     }
 
-    const waistValue = Number(waist);
+    const waistValue = Number(waistCm);
 
     if (waistValue < 40 || waistValue > 200) {
       setError("請輸入合理的腰圍數值");
@@ -83,9 +83,9 @@ function MetabolicWaist() {
     const updatedData = {
       ...metabolicData,
 
-      waist: skipWaist
+      waist_cm: skipWaist
         ? null
-        : Number(waist),
+        : Number(waistCm),
 
       waist_skipped: skipWaist,
     };
@@ -256,7 +256,7 @@ function MetabolicWaist() {
           {/* 腰圍輸入 */}
           <div className="waist-field">
 
-            <label htmlFor="waist">
+            <label htmlFor="waistCm">
               腰圍
               <span className="optional-text">
                 選填
@@ -271,9 +271,9 @@ function MetabolicWaist() {
             <div className="waist-input-wrapper">
 
               <input
-                id="waist"
+                id="waistCm"
                 type="number"
-                value={waist}
+                value={waistCm}
                 onChange={handleWaistChange}
                 placeholder="例如：82"
                 step="0.1"

@@ -21,6 +21,7 @@ from psqi.views import (
     submit_psqi,
     list_psqi,
     predict_metabolic,
+    predict,
 )
 
 
@@ -56,11 +57,18 @@ urlpatterns = [
     # =========================
     # 代謝症候群風險篩檢
     # =========================
-
+    #舊
     path(
         "api/metabolic/predict/",
         predict_metabolic,
         name="predict_metabolic"
+    ),
+
+    #新
+    path(
+        "api/model/predict/",
+        predict,
+        name="predict_model"
     ),
 
 ]

@@ -2,6 +2,14 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
+import joblib
+import json
+import pandas as pd
+from pathlib import Path
+from models.questionnaire_transformer import transform_request
+
+
+
 from .models import (
     PSQIResponse,
     MetabolicScreening,
@@ -958,3 +966,69 @@ def predict_metabolic(request):
             status=
                 status.HTTP_500_INTERNAL_SERVER_ERROR
         )
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+MODEL_PATH = (
+    BASE_DIR
+    / "models"
+    / "Model_B_base.joblib"
+)
+
+QUESTIONNAIRE_PATH = (
+    BASE_DIR
+    / "models"
+    / "api_questionnaire_options.json"
+)
+
+model = joblib.load(MODEL_PATH)
+
+with open(
+    QUESTIONNAIRE_PATH,
+    "r",
+    encoding="utf-8"
+) as f:
+    questionnaire = json.load(f)
+
+print("模型 classes:", model.classes_)
+
+@api_view(['POST'])
+def predict(request):
+    try:
+        payload = request.data
+        print("收到的 payload:", payload)
+
+        X = transform_request(payload, questionnaire)
+        print("轉換後 X:", X)
+
+        df = pd.DataFrame([X])
+        result = model.predict_proba(df)[0]
+
+        return Response({
+            "model": "B",
+
+            # 等知道 risl cutoff 再填
+            "risk_group": None,
+
+            "probabilities": {
+                "class_0": float(result[0]),
+                "class_1": float(result[1]),
+            },
+
+            # Result 頁需要的資料
+            "bmi": round(float(X["bmi_kg_m2"]), 1),
+
+            "sleep_hours": float(payload["sleep_hours"]),
+            "sleep_category": X["sleep4"],
+
+            "waist_cm": (
+                float(payload["waist_cm"])
+                if payload.get("waist_cm") is not None
+                else None
+            ),
+        })
+
+    except Exception as e:
+        print("錯誤:", str(e))
+        return Response({
+            "error": str(e)
+        })

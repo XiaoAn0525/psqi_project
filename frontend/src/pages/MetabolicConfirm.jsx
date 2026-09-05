@@ -1,6 +1,6 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 import "./MetabolicConfirm.css";
 
@@ -53,46 +53,97 @@ function MetabolicConfirm() {
   // 資料顯示文字
   // =========================================
 
-  const genderText = {
+  const sexText = {
     male: "男性",
     female: "女性",
   };
 
 
   const smokingText = {
-    never: "沒有",
-    current: "有",
-    former: "已戒菸",
+    never: "不抽",
+    passive: "不抽，但經常吸二手煙",
+    former: "以前抽，現已戒煙",
+    occasional: "偶爾抽",
+    daily: "每天抽",
   };
 
 
   const exerciseText = {
-    rare: "幾乎沒有",
-    "1_2": "每週 1–2 次",
-    "3_plus": "每週 3 次以上",
+    daily_or_more: "每天 1 次以上",
+    weekly_4_6: "每週 4–6 次",
+    weekly_2_3: "每週 2–3 次",
+    weekly_once: "每週 1 次",
+    rare_or_none: "不運動或每週少於 1 次",
   };
 
 
-  const alcoholText = {
-    never: "沒有",
-    current: "有",
-    former: "已戒酒",
+  const drinkingText = {
+    never_or_lt_weekly: "不喝或每週少於 1 次",
+    former: "以前喝，現已戒酒",
+    weekly_1_2: "每週 1–2 次",
+    weekly_3_4: "每週 3–4 次",
+    weekly_5_6: "每週 5–6 次",
+    daily: "每天喝",
   };
 
 
-  const betelNutText = {
-    never: "沒有",
-    current: "有",
-    former: "已戒",
+  const betelText = {
+    never: "不嚼",
+    former: "以前嚼，現已戒",
+    weekly_1_3: "每週 1~3 次",
+    weekly_4_5: "每週 4~5 次",
+    weekly_6_or_daily: "每週 6 次或每天嚼",
   };
 
 
-  const dietText = {
-    rare: "很少",
-    sometimes: "有時",
+  const vegetableText = {
+  lt_half_bowl: "不吃或每天少於半碗",
+  half_to_one_bowl: "每天半碗～1碗以內",
+  one_to_1_5_bowls: "每天1碗～1碗半以內",
+  one_5_to_two_bowls: "每天1碗半～2碗以內",
+  gte_two_bowls: "每天2碗或以上",
+};
+
+  const fruitText = {
+    never: "從來沒有",
+    occasionally: "偶爾",
     often: "經常",
+    always: "總是",
   };
 
+  const friedFoodText = {
+    lt_weekly: "不吃或每週少於1次",
+    weekly_2_3: "每週2～3次",
+    weekly_4_5: "每週4～5次",
+    weekly_6_or_daily: "每週6次或每天吃",
+  };
+
+  const sauceText = {
+    never: "從來沒有",
+    occasionally: "偶爾",
+    often: "經常",
+    always: "總是",
+  };
+
+  const getBmi = () => {
+    if (!data) {
+      return "-";
+    }
+
+    const heightCm = Number(data.height_cm);
+    const weightKg = Number(data.weight_kg);
+
+    if (!heightCm || !weightKg) {
+      return "-";
+    }
+
+    const heightM = heightCm / 100;
+
+    return (
+      weightKg /
+      (heightM * heightM)
+    ).toFixed(1);
+  };
 
   // =========================================
   // 睡眠分類
@@ -103,23 +154,21 @@ function MetabolicConfirm() {
       return "-";
     }
 
-    const hours = Number(
-      data.sleep_hours
-    );
+    const hours = Number(data.sleep_hours);
+
+    if (hours < 4) {
+      return "少於 4 小時";
+    }
 
     if (hours < 6) {
-      return "睡眠不足";
+      return "4～未滿 6 小時";
     }
 
-    if (hours < 7) {
-      return "睡眠偏短";
+    if (hours < 8) {
+      return "6～未滿 8 小時";
     }
 
-    if (hours <= 9) {
-      return "一般睡眠範圍";
-    }
-
-    return "睡眠偏長";
+    return "8 小時以上";
   };
 
 
@@ -143,32 +192,36 @@ function MetabolicConfirm() {
       // =====================================
 
       const sendData = {
-        age: data.age,
+        age: Number(data.age),
 
-        gender: data.gender,
+        sex: data.sex,
 
-        height: data.height,
+        height_cm: Number(data.height_cm),
 
-        weight: data.weight,
+        weight_kg: Number(data.weight_kg),
 
-        bmi: data.bmi,
+        sleep_hours: Number(data.sleep_hours),
 
-        sleep_hours: data.sleep_hours,
+        smoking_status:data.smoking_status,
 
-        smoking: data.smoking,
+        drinking_status:data.drinking_status,
 
-        exercise: data.exercise,
+        betel_status:data.betel_status,
 
-        alcohol: data.alcohol,
+        exercise_frequency:data.exercise_frequency,
 
-        betel_nut: data.betel_nut,
+        vegetable_intake:data.vegetable_intake,
 
-        diet: data.diet,
+        fruit_intake:data.fruit_intake,
 
-        waist:
+        fried_processed_food:data.fried_processed_food,
+
+        salty_sauce_habit:data.salty_sauce_habit,
+
+        waist_cm:
           data.waist_skipped === true
             ? null
-            : data.waist,
+            : Number(data.waist_cm),
       };
 
 
@@ -183,7 +236,7 @@ function MetabolicConfirm() {
       // =====================================
 
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/metabolic/predict/",
+        "http://127.0.0.1:8000/api/model/predict/",
         sendData
       );
 
@@ -490,8 +543,8 @@ function MetabolicConfirm() {
 
               <strong>
                 {
-                  genderText[
-                    data.gender
+                  sexText[
+                    data.sex
                   ] || "-"
                 }
               </strong>
@@ -506,7 +559,7 @@ function MetabolicConfirm() {
               </span>
 
               <strong>
-                {data.height ?? "-"} cm
+                {data.height_cm ?? "-"} cm
               </strong>
 
             </div>
@@ -519,7 +572,7 @@ function MetabolicConfirm() {
               </span>
 
               <strong>
-                {data.weight ?? "-"} kg
+                {data.weight_kg ?? "-"} kg
               </strong>
 
             </div>
@@ -532,7 +585,7 @@ function MetabolicConfirm() {
               </span>
 
               <strong>
-                {data.bmi ?? "-"}
+                {getBmi()}
               </strong>
 
             </div>
@@ -674,11 +727,7 @@ function MetabolicConfirm() {
               </span>
 
               <strong>
-                {
-                  smokingText[
-                    data.smoking
-                  ] || "-"
-                }
+                {smokingText[data.smoking_status] || "-"}
               </strong>
 
             </div>
@@ -691,11 +740,7 @@ function MetabolicConfirm() {
               </span>
 
               <strong>
-                {
-                  exerciseText[
-                    data.exercise
-                  ] || "-"
-                }
+                {exerciseText[data.exercise_frequency] || "-"}
               </strong>
 
             </div>
@@ -708,11 +753,7 @@ function MetabolicConfirm() {
               </span>
 
               <strong>
-                {
-                  alcoholText[
-                    data.alcohol
-                  ] || "-"
-                }
+                {drinkingText[data.drinking_status] || "-"}
               </strong>
 
             </div>
@@ -725,28 +766,55 @@ function MetabolicConfirm() {
               </span>
 
               <strong>
-                {
-                  betelNutText[
-                    data.betel_nut
-                  ] || "-"
-                }
+                {betelText[data.betel_status] || "-"}
+              </strong>
+
+            </div>
+            
+            <div className="confirm-item">
+
+              <span>
+                蔬菜
+              </span>
+
+              <strong>
+                {vegetableText[data.vegetable_intake] || "-"}
               </strong>
 
             </div>
 
+            <div className="confirm-item">
+
+              <span>
+                水果
+              </span>
+
+              <strong>
+                {fruitText[data.fruit_intake] || "-"}
+              </strong>
+
+            </div>
 
             <div className="confirm-item">
 
               <span>
-                高油、高糖或高熱量食物
+                煎、炸、加工食品
               </span>
 
               <strong>
-                {
-                  dietText[
-                    data.diet
-                  ] || "-"
-                }
+                {friedFoodText[data.fried_processed_food] || "-"}
+              </strong>
+
+            </div>
+
+            <div className="confirm-item">
+
+              <span>
+                沾醬習慣
+              </span>
+
+              <strong>
+                {sauceText[data.salty_sauce_habit] || "-"}
               </strong>
 
             </div>
@@ -809,11 +877,11 @@ function MetabolicConfirm() {
               <strong>
                 {
                   data.waist_skipped === true ||
-                  data.waist === null ||
-                  data.waist === undefined ||
-                  data.waist === ""
+                  data.waist_cm === null ||
+                  data.waist_cm === undefined ||
+                  data.waist_cm === ""
                     ? "未填寫"
-                    : `${data.waist} cm`
+                    : `${data.waist_cm} cm`
                 }
               </strong>
 

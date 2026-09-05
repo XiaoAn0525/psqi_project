@@ -6,11 +6,14 @@ function MetabolicLifestyle() {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
-    smoking: "",
-    exercise: "",
-    alcohol: "",
-    betel_nut: "",
-    diet: "",
+    smoking_status: "",
+    drinking_status: "",
+    betel_status: "",
+    exercise_frequency: "",
+    vegetable_intake: "",
+    fruit_intake: "",
+    fried_processed_food: "",
+    salty_sauce_habit: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -24,11 +27,14 @@ function MetabolicLifestyle() {
       const parsedData = JSON.parse(savedData);
 
       setForm({
-        smoking: parsedData.smoking || "",
-        exercise: parsedData.exercise || "",
-        alcohol: parsedData.alcohol || "",
-        betel_nut: parsedData.betel_nut || "",
-        diet: parsedData.diet || "",
+        smoking_status: parsedData.smoking_status || "",
+        drinking_status: parsedData.drinking_status || "",
+        betel_status: parsedData.betel_status || "",
+        exercise_frequency: parsedData.exercise_frequency || "",
+        vegetable_intake: parsedData.vegetable_intake || "",
+        fruit_intake: parsedData.fruit_intake || "",
+        fried_processed_food: parsedData.fried_processed_food || "",
+        salty_sauce_habit: parsedData.salty_sauce_habit || "",
       });
     }
   }, []);
@@ -48,24 +54,36 @@ function MetabolicLifestyle() {
   const validate = () => {
     const newErrors = {};
 
-    if (!form.smoking) {
-      newErrors.smoking = "請選擇目前的抽菸狀況";
+    if (!form.smoking_status) {
+    newErrors.smoking_status = "請選擇抽菸狀況";
     }
 
-    if (!form.exercise) {
-      newErrors.exercise = "請選擇每週運動頻率";
+    if (!form.drinking_status) {
+      newErrors.drinking_status = "請選擇飲酒狀況";
     }
 
-    if (!form.alcohol) {
-      newErrors.alcohol = "請選擇目前的飲酒狀況";
+    if (!form.betel_status) {
+      newErrors.betel_status = "請選擇檳榔使用狀況";
     }
 
-    if (!form.betel_nut) {
-      newErrors.betel_nut = "請選擇目前的檳榔使用狀況";
+    if (!form.exercise_frequency) {
+      newErrors.exercise_frequency = "請選擇運動頻率";
     }
 
-    if (!form.diet) {
-      newErrors.diet = "請選擇目前的飲食狀況";
+    if (!form.vegetable_intake) {
+      newErrors.vegetable_intake = "請選擇蔬菜攝取量";
+    }
+
+    if (!form.fruit_intake) {
+      newErrors.fruit_intake = "請選擇水果攝取頻率";
+    }
+
+    if (!form.fried_processed_food) {
+      newErrors.fried_processed_food = "請選擇煎炸加工食品攝取頻率";
+    }
+
+    if (!form.salty_sauce_habit) {
+      newErrors.salty_sauce_habit = "請選擇沾醬習慣";
     }
 
     setErrors(newErrors);
@@ -245,7 +263,7 @@ function MetabolicLifestyle() {
 
               <div>
                 <h4>
-                  你目前是否有抽菸？
+                  您目前是否有抽菸？
                   <span>*</span>
                 </h4>
 
@@ -260,31 +278,40 @@ function MetabolicLifestyle() {
             <div className="choice-grid three-choice-grid">
 
               <OptionButton
-                field="smoking"
+                field="smoking_status"
                 value="never"
-                title="沒有"
-                description="目前沒有抽菸"
+                title="不抽"
               />
 
               <OptionButton
-                field="smoking"
-                value="current"
-                title="有"
-                description="目前仍有抽菸"
+                field="smoking_status"
+                value="passive"
+                title="不抽，但經常吸二手煙"
               />
 
               <OptionButton
-                field="smoking"
+                field="smoking_status"
                 value="former"
-                title="已戒菸"
-                description="過去曾抽菸，目前已戒"
+                title="以前抽，現已戒煙"
+              />
+
+              <OptionButton
+                field="smoking_status"
+                value="occasional"
+                title="偶爾抽"
+              />
+
+              <OptionButton
+                field="smoking_status"
+                value="daily"
+                title="每天抽"
               />
 
             </div>
 
-            {errors.smoking && (
+            {errors.smoking_status && (
               <p className="lifestyle-error">
-                {errors.smoking}
+                {errors.smoking_status}
               </p>
             )}
 
@@ -307,7 +334,7 @@ function MetabolicLifestyle() {
 
               <div>
                 <h4>
-                  你每週運動頻率大約為？
+                  您每週運動頻率大約為？
                   <span>*</span>
                 </h4>
 
@@ -322,31 +349,40 @@ function MetabolicLifestyle() {
             <div className="choice-grid three-choice-grid">
 
               <OptionButton
-                field="exercise"
-                value="rare"
-                title="幾乎沒有"
-                description="平常幾乎沒有固定運動"
+                field="exercise_frequency"
+                value="daily_or_more"
+                title="每天 1 次以上"
               />
 
               <OptionButton
-                field="exercise"
-                value="1_2"
-                title="每週 1–2 次"
-                description="每週約進行一至兩次運動"
+                field="exercise_frequency"
+                value="weekly_4_6"
+                title="每週 4~6 次"
               />
 
               <OptionButton
-                field="exercise"
-                value="3_plus"
-                title="每週 3 次以上"
-                description="每週規律運動三次以上"
+                field="exercise_frequency"
+                value="weekly_2_3"
+                title="每週 2~3 次"
+              />
+
+              <OptionButton
+                field="exercise_frequency"
+                value="weekly_once"
+                title="每週 1 次"
+              />
+
+              <OptionButton
+                field="exercise_frequency"
+                value="rare_or_none"
+                title="不運動或每週少於 1 次"
               />
 
             </div>
 
-            {errors.exercise && (
+            {errors.exercise_frequency && (
               <p className="lifestyle-error">
-                {errors.exercise}
+                {errors.exercise_frequency}
               </p>
             )}
 
@@ -369,7 +405,7 @@ function MetabolicLifestyle() {
 
               <div>
                 <h4>
-                  你目前是否有飲酒習慣？
+                  您目前是否有飲酒習慣？
                   <span>*</span>
                 </h4>
 
@@ -384,31 +420,46 @@ function MetabolicLifestyle() {
             <div className="choice-grid three-choice-grid">
 
               <OptionButton
-                field="alcohol"
-                value="never"
-                title="沒有"
-                description="目前沒有飲酒習慣"
+                field="drinking_status"
+                value="never_or_lt_weekly"
+                title="不喝或每週少於 1 次"
               />
 
               <OptionButton
-                field="alcohol"
-                value="current"
-                title="有"
-                description="目前有飲酒習慣"
-              />
-
-              <OptionButton
-                field="alcohol"
+                field="drinking_status"
                 value="former"
-                title="已戒酒"
-                description="過去有飲酒，目前已戒"
+                title="以前喝，現已戒酒"
+              />
+
+              <OptionButton
+                field="drinking_status"
+                value="weekly_1_2"
+                title="每週 1–2 次"
+              />
+
+              <OptionButton
+                field="drinking_status"
+                value="weekly_3_4"
+                title="每週 3–4 次"
+              />
+
+              <OptionButton
+                field="drinking_status"
+                value="weekly_5_6"
+                title="每週 5–6 次"
+              />
+
+              <OptionButton
+                field="drinking_status"
+                value="daily"
+                title="每天喝"
               />
 
             </div>
 
-            {errors.alcohol && (
+            {errors.drinking_status && (
               <p className="lifestyle-error">
-                {errors.alcohol}
+                {errors.drinking_status}
               </p>
             )}
 
@@ -431,7 +482,76 @@ function MetabolicLifestyle() {
 
               <div>
                 <h4>
-                  你目前是否有嚼檳榔習慣？
+                  您目前是否有嚼檳榔習慣？
+                  <span>*</span>
+                </h4>
+
+                <p>
+                  請依目前的飲食狀況選擇。
+                </p>
+              </div>
+
+            </div>
+
+
+            <div className="choice-grid three-choice-grid">
+
+              <OptionButton
+                field="vegetable_intake"
+                value="lt_half_bowl"
+                title="不吃或每天少於半碗"
+              />
+
+              <OptionButton
+                field="vegetable_intake"
+                value="half_to_one_bowl"
+                title="每天吃半碗～1碗以內"
+              />
+
+              <OptionButton
+                field="vegetable_intake"
+                value="one_to_1_5_bowls"
+                title="每天吃1碗～1碗半以內"
+              />
+
+              <OptionButton
+                field="vegetable_intake"
+                value="one_5_to_two_bowls"
+                title="每天吃1碗半～2碗以內"
+              />
+
+              <OptionButton
+                field="vegetable_intake"
+                value="gte_two_bowls"
+                title="每天吃2碗或以上"
+              />
+            </div>
+
+            {errors.vegetable_intake && (
+              <p className="lifestyle-error">
+                {errors.vegetable_intake}
+              </p>
+            )}
+
+          </div>
+
+          <div className="question-divider"></div>
+
+
+          {/* =========================
+              10.5 蔬菜
+          ========================== */}
+          <div className="lifestyle-question">
+
+            <div className="question-heading">
+
+              <div className="question-number">
+                5
+              </div>
+
+              <div>
+                <h4>
+                  您一天會吃到多少蔬菜量？
                   <span>*</span>
                 </h4>
 
@@ -446,60 +566,66 @@ function MetabolicLifestyle() {
             <div className="choice-grid three-choice-grid">
 
               <OptionButton
-                field="betel_nut"
+                field="betel_status"
                 value="never"
-                title="沒有"
-                description="目前沒有嚼檳榔"
+                title="不嚼"
               />
 
               <OptionButton
-                field="betel_nut"
-                value="current"
-                title="有"
-                description="目前仍有嚼檳榔"
-              />
-
-              <OptionButton
-                field="betel_nut"
+                field="betel_status"
                 value="former"
-                title="已戒"
-                description="過去有使用，目前已戒"
+                title="以前嚼，現已戒"
+              />
+
+              <OptionButton
+                field="betel_status"
+                value="weekly_1_3"
+                title="每週 1–3 次"
+              />
+
+              <OptionButton
+                field="betel_status"
+                value="weekly_4_5"
+                title="每週 4–5 次"
+              />
+
+              <OptionButton
+                field="betel_status"
+                value="weekly_6_or_daily"
+                title="每週 6 次或每天嚼"
               />
 
             </div>
 
-            {errors.betel_nut && (
+            {errors.betel_status && (
               <p className="lifestyle-error">
-                {errors.betel_nut}
+                {errors.betel_status}
               </p>
             )}
 
           </div>
 
-
           <div className="question-divider"></div>
 
-
           {/* =========================
-              10.5 飲食
+              10.6 水果
           ========================== */}
           <div className="lifestyle-question">
 
             <div className="question-heading">
 
               <div className="question-number">
-                5
+                6
               </div>
 
               <div>
                 <h4>
-                  你是否經常攝取高油、高糖或高熱量食物？
+                  您多常吃至少兩份水果？
                   <span>*</span>
                 </h4>
 
                 <p>
-                  此題目前為前端示意，
-                  最終題目及 coding 需依模型訓練資料確認。
+                  請依目前的飲食狀況選擇。
                 </p>
               </div>
 
@@ -509,35 +635,163 @@ function MetabolicLifestyle() {
             <div className="choice-grid three-choice-grid">
 
               <OptionButton
-                field="diet"
-                value="rare"
-                title="很少"
-                description="平常較少攝取"
+                field="fruit_intake"
+                value="never"
+                title="從來沒有"
               />
 
               <OptionButton
-                field="diet"
-                value="sometimes"
-                title="有時"
-                description="偶爾會攝取"
+                field="fruit_intake"
+                value="occasionally"
+                title="偶爾"
               />
 
               <OptionButton
-                field="diet"
+                field="fruit_intake"
                 value="often"
                 title="經常"
-                description="經常攝取"
               />
 
+              <OptionButton
+                field="fruit_intake"
+                value="always"
+                title="總是"
+              />
             </div>
 
-            {errors.diet && (
+            {errors.fruit_intake && (
               <p className="lifestyle-error">
-                {errors.diet}
+                {errors.fruit_intake}
               </p>
             )}
 
           </div>
+
+          <div className="question-divider"></div>
+
+          {/* =========================
+              10.7 煎炸等
+          ========================== */}
+          <div className="lifestyle-question">
+
+            <div className="question-heading">
+
+              <div className="question-number">
+                7
+              </div>
+
+              <div>
+                <h4>
+                  您多常吃煎、炸、碳烤、煙燻製品食物？
+                  <span>*</span>
+                </h4>
+
+                <p>
+                  請依目前的飲食狀況選擇。
+                </p>
+              </div>
+
+            </div>
+
+
+            <div className="choice-grid three-choice-grid">
+
+              <OptionButton
+                field="fried_processed_food"
+                value="lt_weekly"
+                title="不吃或每週少於1次"
+              />
+
+              <OptionButton
+                field="fried_processed_food"
+                value="weekly_2_3"
+                title="每週吃2～3次"
+              />
+
+              <OptionButton
+                field="fried_processed_food"
+                value="weekly_4_5"
+                title="每週吃4～5次"
+              />
+
+              <OptionButton
+                field="fried_processed_food"
+                value="weekly_6_or_daily"
+                title="每週6次或每天吃"
+              />
+            </div>
+
+            {errors.fried_processed_food && (
+              <p className="lifestyle-error">
+                {errors.fried_processed_food}
+              </p>
+            )}
+
+          </div>
+
+          <div className="question-divider"></div>
+
+          {/* =========================
+              10.8 醬料
+          ========================== */}
+          <div className="lifestyle-question">
+
+            <div className="question-heading">
+
+              <div className="question-number">
+                8
+              </div>
+
+              <div>
+                <h4>
+                  您用餐時，常常沾醬料或辣椒醬嗎？
+                  <span>*</span>
+                </h4>
+
+                <p>
+                  請依目前的飲食狀況選擇。
+                </p>
+              </div>
+
+            </div>
+
+
+            <div className="choice-grid three-choice-grid">
+
+              <OptionButton
+                field="salty_sauce_habit"
+                value="never"
+                title="從來沒有"
+              />
+
+              <OptionButton
+                field="salty_sauce_habit"
+                value="occasionally"
+                title="偶爾"
+              />
+
+              <OptionButton
+                field="salty_sauce_habit"
+                value="often"
+                title="經常"
+              />
+
+              <OptionButton
+                field="salty_sauce_habit"
+                value="always"
+                title="總是"
+              />
+            </div>
+
+            {errors.salty_sauce_habit && (
+              <p className="lifestyle-error">
+                {errors.salty_sauce_habit}
+              </p>
+            )}
+
+          </div>
+
+          <div className="question-divider"></div>
 
 
           {/* Coding 提醒 */}

@@ -60,6 +60,26 @@ function MetabolicResult() {
     );
   }
 
+  // =========================================
+  // 睡眠
+  // =========================================
+
+  const getSleepCategoryText = () => {
+    const sleepCategoryText = {
+      lt4h: "少於 4 小時",
+      h4_6: "4～未滿 6 小時",
+      h6_8: "6～未滿 8 小時",
+      gte8h: "8 小時以上",
+    };
+
+    return (
+      sleepCategoryText[
+        result.sleep_category
+      ] || "-"
+    );
+  };
+
+  
 
   // =========================================
   // 風險樣式
@@ -89,6 +109,8 @@ function MetabolicResult() {
   // 風險說明
   // =========================================
 
+  //還未有 risk cutoff 暫不判斷
+
   const getRiskDescription = () => {
 
     if (
@@ -113,6 +135,26 @@ function MetabolicResult() {
       "依目前填寫的資料，出現部分與代謝健康相關的風險因素，建議持續注意生活型態與健康狀況。"
     );
   };
+  
+  const riskGroupText = {
+    low: "較低風險",
+    medium: "中等風險",
+    high: "較高風險",
+  };
+
+  const rawRiskProbability =
+    result?.risk_probability ??
+    result?.probabilities?.class_1;
+
+  const riskProbability = Number(rawRiskProbability);
+
+  const riskPercent =
+    Number.isFinite(riskProbability)
+      ? (riskProbability * 100).toFixed(1)
+      : null;
+
+  const riskGroup =
+    result?.risk_group ?? null;
 
 
   // =========================================
@@ -314,7 +356,7 @@ function MetabolicResult() {
 
               <div className="summary-value">
 
-                {result.sleep_hours}
+                {result.sleep_hours ?? "-"}
 
                 <span>
                   {" "}小時
@@ -322,9 +364,8 @@ function MetabolicResult() {
 
               </div>
 
-
               <div className="summary-status sleep-status">
-                {result.sleep_category}
+                {getSleepCategoryText()}
               </div>
 
             </div>
@@ -353,10 +394,10 @@ function MetabolicResult() {
               <strong>
 
                 {
-                  result.waist === null ||
-                  result.waist === undefined
+                  result.waist_cm === null ||
+                  result.waist_cm === undefined
                     ? "未提供"
-                    : `${result.waist} cm`
+                    : `${result.waist_cm} cm`
                 }
 
               </strong>
@@ -386,13 +427,40 @@ function MetabolicResult() {
                 </span>
 
                 <h3>
-                  本次發現的風險因素
+                  本次預測結果
                 </h3>
 
               </div>
 
             </div>
 
+            <div className="no-risk-factor">
+
+              <div className="no-risk-icon">
+                  ✓
+                </div>
+
+
+            <div>
+
+              <strong>
+                目前可能符合代謝症候群的風險機率：
+                {
+                  riskPercent === "-"
+                  ? "暫無資料"
+                  : `${riskPercent}%`
+                }
+                </strong>
+
+              <p>
+                使用模型：Model {result?.model ?? "B"}。
+              </p>
+
+            </div>
+
+          </div>
+
+{/*
 
             <div className="risk-factor-list">
 
@@ -454,9 +522,77 @@ function MetabolicResult() {
               }
 
             </div>
-
+*/}
           </section>
 
+          {/* =================================
+              風險設計(暫時)
+          
+
+          <section className="risk-factor-section">
+
+              <div className="risk-result-card">
+                <h2>模型預設結果</h2>
+
+                <p className="risk-model">
+                  使用模型：Model {result?.model ?? "B"}
+                </p>
+
+                <div className="risk-probability">
+                  {riskPercent}%
+                </div>
+
+                <p>
+                  目前可能符合代謝症候群的風險機率
+                </p>
+
+                {riskGroup ? (
+                  <div className={`risk-group ${riskGroup}`}>
+                    {riskGroupText[riskGroup]}
+                  </div>
+                ) : (
+                  <div className="risk-group pending">
+                    風險分層規則待確認
+                  </div>
+                )}
+              </div>
+
+              <div className="risk-level-list">
+
+                <div
+                  className={
+                    riskGroup === "low"
+                      ? "risk-level active"
+                      : "risk-level"
+                  }
+                >
+                  較低風險
+                </div>
+
+                <div
+                  className={
+                    riskGroup === "medium"
+                      ? "risk-level active"
+                      : "risk-level"
+                  }
+                >
+                  中等風險
+                </div>
+
+                <div
+                  className={
+                    riskGroup === "high"
+                      ? "risk-level active"
+                      : "risk-level"
+                  }
+                >
+                  較高風險
+                </div>
+
+              </div>
+
+          </section>
+================================== */}
 
           {/* =================================
               健康建議
