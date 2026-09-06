@@ -136,12 +136,17 @@ function MetabolicResult() {
     );
   };
   
-  const riskGroupText = {
+  const riskGroupLabels  = {
     low: "較低風險",
     medium: "中等風險",
     high: "較高風險",
   };
 
+  const riskGroupText =
+  riskGroupLabels[result?.risk_group]
+  ?? "無法判定";
+
+  
   const rawRiskProbability =
     result?.risk_probability ??
     result?.probabilities?.class_1;
@@ -440,9 +445,12 @@ function MetabolicResult() {
                   ✓
                 </div>
 
-
             <div>
 
+              <strong>
+                風險分層：{riskGroupText}
+              </strong>
+              
               <strong>
                 目前可能符合代謝症候群的風險機率：
                 {
@@ -450,149 +458,22 @@ function MetabolicResult() {
                   ? "暫無資料"
                   : `${riskPercent}%`
                 }
-                </strong>
+              </strong>
 
               <p>
-                使用模型：Model {result?.model ?? "B"}。
+                使用模型：
+                {result?.model_used
+                  ? result.model_used.replace("_", " ")
+                  : result?.model
+                    ? `Model ${result.model}`
+                    : "無法判定"}
               </p>
 
             </div>
 
           </div>
 
-{/*
-
-            <div className="risk-factor-list">
-
-              {
-                result.risk_factors &&
-                result.risk_factors.length > 0
-                  ? (
-
-                    result.risk_factors.map(
-                      (
-                        item,
-                        index
-                      ) => (
-
-                        <div
-                          className="risk-factor-item"
-                          key={index}
-                        >
-
-                          <div className="risk-factor-dot">
-                            !
-                          </div>
-
-
-                          <p>
-                            {item}
-                          </p>
-
-                        </div>
-
-                      )
-                    )
-
-                  )
-                  : (
-
-                    <div className="no-risk-factor">
-
-                      <div className="no-risk-icon">
-                        ✓
-                      </div>
-
-
-                      <div>
-
-                        <strong>
-                          未發現較明顯的風險因素
-                        </strong>
-
-                        <p>
-                          建議持續維持良好的生活與健康習慣。
-                        </p>
-
-                      </div>
-
-                    </div>
-
-                  )
-              }
-
-            </div>
-*/}
           </section>
-
-          {/* =================================
-              風險設計(暫時)
-          
-
-          <section className="risk-factor-section">
-
-              <div className="risk-result-card">
-                <h2>模型預設結果</h2>
-
-                <p className="risk-model">
-                  使用模型：Model {result?.model ?? "B"}
-                </p>
-
-                <div className="risk-probability">
-                  {riskPercent}%
-                </div>
-
-                <p>
-                  目前可能符合代謝症候群的風險機率
-                </p>
-
-                {riskGroup ? (
-                  <div className={`risk-group ${riskGroup}`}>
-                    {riskGroupText[riskGroup]}
-                  </div>
-                ) : (
-                  <div className="risk-group pending">
-                    風險分層規則待確認
-                  </div>
-                )}
-              </div>
-
-              <div className="risk-level-list">
-
-                <div
-                  className={
-                    riskGroup === "low"
-                      ? "risk-level active"
-                      : "risk-level"
-                  }
-                >
-                  較低風險
-                </div>
-
-                <div
-                  className={
-                    riskGroup === "medium"
-                      ? "risk-level active"
-                      : "risk-level"
-                  }
-                >
-                  中等風險
-                </div>
-
-                <div
-                  className={
-                    riskGroup === "high"
-                      ? "risk-level active"
-                      : "risk-level"
-                  }
-                >
-                  較高風險
-                </div>
-
-              </div>
-
-          </section>
-================================== */}
 
           {/* =================================
               健康建議

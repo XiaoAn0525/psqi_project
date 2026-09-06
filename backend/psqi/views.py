@@ -15,6 +15,41 @@ from .models import (
     MetabolicScreening,
 )
 
+    # =====================================================
+    # 載入模型
+    # =====================================================
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+MODEL_B_PATH = BASE_DIR / "models" / "Model_B_base.joblib"
+MODEL_C_PATH = BASE_DIR / "models" / "Model_C_base.joblib"
+
+    # =====================================================
+    # cut-off
+    # =====================================================
+
+MODEL_B_LOW_CUTOFF = 0.1197065306
+MODEL_B_HIGH_CUTOFF = 0.3453977211
+
+MODEL_C_LOW_CUTOFF = 0.1276190293
+MODEL_C_HIGH_CUTOFF = 0.3239422787
+
+QUESTIONNAIRE_PATH = (
+    BASE_DIR
+    / "models"
+    / "api_questionnaire_options.json"
+)
+
+model_b = joblib.load(MODEL_B_PATH)
+model_c = joblib.load(MODEL_C_PATH)
+
+with open(
+    QUESTIONNAIRE_PATH,
+    "r",
+    encoding="utf-8"
+) as f:
+    questionnaire = json.load(f)
+
 
 # =========================================================
 # PSQI 睡眠品質問卷
@@ -966,30 +1001,18 @@ def predict_metabolic(request):
             status=
                 status.HTTP_500_INTERNAL_SERVER_ERROR
         )
-BASE_DIR = Path(__file__).resolve().parent.parent
 
-MODEL_PATH = (
-    BASE_DIR
-    / "models"
-    / "Model_B_base.joblib"
-)
-
-QUESTIONNAIRE_PATH = (
-    BASE_DIR
-    / "models"
-    / "api_questionnaire_options.json"
-)
-
-model = joblib.load(MODEL_PATH)
-
-with open(
-    QUESTIONNAIRE_PATH,
-    "r",
-    encoding="utf-8"
-) as f:
-    questionnaire = json.load(f)
-
-print("模型 classes:", model.classes_)
+def get_risk_group(
+    probability,
+    low_cutoff,
+    high_cutoff
+):
+    if probability < low_cutoff:
+        return "low"
+    elif probability < high_cutoff:
+        return "intermediate"
+    else:
+        return "high"
 
 @api_view(['POST'])
 def predict(request):
@@ -1001,28 +1024,77 @@ def predict(request):
         print("轉換後 X:", X)
 
         df = pd.DataFrame([X])
-        result = model.predict_proba(df)[0]
 
+        waist_cm = payload.get("waist_cm")
+
+        if waist_cm is not None:
+            # 有腰圍 → Model C
+            selected_model = model_c
+
+            model_used = "Model_C"
+            model_name = "C"
+
+            low_cutoff = MODEL_C_LOW_CUTOFF
+            high_cutoff = MODEL_C_HIGH_CUTOFF
+
+            waist_model_used = True
+
+        else:
+            # 沒有腰圍 → Model B
+            selected_model = model_b
+
+            model_used = "Model_B"
+            model_name = "B"
+
+            low_cutoff = MODEL_B_LOW_CUTOFF
+            high_cutoff = MODEL_B_HIGH_CUTOFF
+
+            waist_model_used = False
+
+        probabilities = selected_model.predict_proba(df)[0]
+        risk_probability = float(probabilities[1])
+
+        risk_group = get_risk_group(
+            risk_probability,
+            low_cutoff,
+            high_cutoff
+        )
+    
         return Response({
-            "model": "B",
+            "model": model_name,
+            "model_used": model_used,
 
-            # 等知道 risl cutoff 再填
-            "risk_group": None,
+            "waist_model_used": waist_model_used,
+
+            "risk_probability": risk_probability,
+            "risk_group": risk_group,
+
+            "low_cutoff": low_cutoff,
+            "high_cutoff": high_cutoff,
 
             "probabilities": {
-                "class_0": float(result[0]),
-                "class_1": float(result[1]),
+                "class_0": float(
+                    probabilities[0]
+                ),
+                "class_1": float(
+                    probabilities[1]
+                ),
             },
 
-            # Result 頁需要的資料
-            "bmi": round(float(X["bmi_kg_m2"]), 1),
+            "bmi": round(
+                float(X["bmi_kg_m2"]),
+                1
+            ),
 
-            "sleep_hours": float(payload["sleep_hours"]),
+            "sleep_hours": float(
+                payload["sleep_hours"]
+            ),
+
             "sleep_category": X["sleep4"],
 
             "waist_cm": (
-                float(payload["waist_cm"])
-                if payload.get("waist_cm") is not None
+                float(waist_cm)
+                if waist_cm is not None
                 else None
             ),
         })

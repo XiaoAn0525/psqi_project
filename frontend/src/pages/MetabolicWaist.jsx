@@ -279,7 +279,6 @@ function MetabolicWaist() {
                 step="0.1"
                 min="40"
                 max="200"
-                disabled={skipWaist}
               />
 
               <span className="waist-input-unit">
