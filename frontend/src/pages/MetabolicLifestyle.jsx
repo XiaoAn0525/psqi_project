@@ -495,36 +495,36 @@ function MetabolicLifestyle() {
 
 
             <div className="choice-grid three-choice-grid">
-
               <OptionButton
-                field="vegetable_intake"
-                value="lt_half_bowl"
-                title="不吃或每天少於半碗"
+                field="betel_status"
+                value="never"
+                title="不嚼"
               />
 
               <OptionButton
-                field="vegetable_intake"
-                value="half_to_one_bowl"
-                title="每天吃半碗～1碗以內"
+                field="betel_status"
+                value="former"
+                title="以前嚼，現已戒"
               />
 
               <OptionButton
-                field="vegetable_intake"
-                value="one_to_1_5_bowls"
-                title="每天吃1碗～1碗半以內"
+                field="betel_status"
+                value="weekly_1_3"
+                title="每週 1–3 次"
               />
 
               <OptionButton
-                field="vegetable_intake"
-                value="one_5_to_two_bowls"
-                title="每天吃1碗半～2碗以內"
+                field="betel_status"
+                value="weekly_4_5"
+                title="每週 4–5 次"
               />
 
               <OptionButton
-                field="vegetable_intake"
-                value="gte_two_bowls"
-                title="每天吃2碗或以上"
+                field="betel_status"
+                value="weekly_6_or_daily"
+                title="每週 6 次或每天嚼"
               />
+              
             </div>
 
             {errors.vegetable_intake && (
@@ -566,33 +566,33 @@ function MetabolicLifestyle() {
             <div className="choice-grid three-choice-grid">
 
               <OptionButton
-                field="betel_status"
-                value="never"
-                title="不嚼"
+                field="vegetable_intake"
+                value="lt_half_bowl"
+                title="不吃或每天少於半碗"
               />
 
               <OptionButton
-                field="betel_status"
-                value="former"
-                title="以前嚼，現已戒"
+                field="vegetable_intake"
+                value="half_to_one_bowl"
+                title="每天吃半碗～1碗以內"
               />
 
               <OptionButton
-                field="betel_status"
-                value="weekly_1_3"
-                title="每週 1–3 次"
+                field="vegetable_intake"
+                value="one_to_1_5_bowls"
+                title="每天吃1碗～1碗半以內"
               />
 
               <OptionButton
-                field="betel_status"
-                value="weekly_4_5"
-                title="每週 4–5 次"
+                field="vegetable_intake"
+                value="one_5_to_two_bowls"
+                title="每天吃1碗半～2碗以內"
               />
 
               <OptionButton
-                field="betel_status"
-                value="weekly_6_or_daily"
-                title="每週 6 次或每天嚼"
+                field="vegetable_intake"
+                value="gte_two_bowls"
+                title="每天吃2碗或以上"
               />
 
             </div>

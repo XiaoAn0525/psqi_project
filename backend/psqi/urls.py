@@ -5,6 +5,7 @@ from .views import (
     list_psqi,
     predict_metabolic,
 )
+from .views import predict
 
 
 urlpatterns = [
@@ -35,5 +36,7 @@ urlpatterns = [
         predict_metabolic,
         name="predict_metabolic"
     ),
+
+    path('predict/', predict),
 
 ]
