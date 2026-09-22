@@ -668,45 +668,30 @@
 /* 沒有風險因素 */
 
 .no-risk-factor {
-  padding: 16px;
-
   display: flex;
-
   align-items: flex-start;
+  gap: 16px;
 
-  gap: 11px;
-
-  border-radius: 12px;
-
-  background: #f1faf7;
-
-  border:
-    1px solid #dceee9;
-
-  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 
 .no-risk-icon {
-  width: 25px;
-  height: 25px;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
+  border-radius: 10px;
+  border: 2px solid currentColor;
+
+  font-weight: 700;
   flex-shrink: 0;
-
-  border-radius: 8px;
-
-  color: #16877d;
-
-  background: #ddf2ec;
-
-  font-size: 11px;
-
-  font-weight: 800;
 }
 
 
@@ -1154,4 +1139,82 @@
     grid-row: 2;
   }
 
+}
+
+.risk-factor-section {
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 20px;
+  transition: 0.3s ease;
+}
+
+/* 較低風險：綠色 */
+.risk-factor-section.risk-low {
+  background-color: #edf8f1;
+  border-color: #8bc7a3;
+}
+
+/* 中等風險：黃色 */
+.risk-factor-section.risk-intermediate {
+  background-color: #fff8e1;
+  border-color: #e7c96b;
+}
+
+/* 較高風險：紅色 */
+.risk-factor-section.risk-high {
+  background-color: #fdecec;
+  border-color: #e59a9a;
+}
+
+/* 無資料 */
+.risk-factor-section.risk-unknown {
+  background-color: #f5f5f5;
+  border-color: #cccccc;
+}
+
+.risk-low .result-section-heading h3,
+.risk-low .risk-factor-heading-icon {
+  color: #2e7d32;
+}
+
+.risk-intermediate .result-section-heading h3,
+.risk-intermediate .risk-factor-heading-icon {
+  color: #b07a00;
+}
+
+.risk-high .result-section-heading h3,
+.risk-high .risk-factor-heading-icon {
+  color: #c62828;
+}
+
+.risk-low .risk-group-text {
+  color: #2e7d32;
+}
+
+.risk-intermediate .risk-group-text {
+  color: #b07a00;
+}
+
+.risk-high .risk-group-text {
+  color: #c62828;
+}
+
+.risk-low .no-risk-icon {
+  color: #2e7d32;
+  background-color: #e8f5e9;
+}
+
+.risk-intermediate .no-risk-icon {
+  color: #b07a00;
+  background-color: #fff3cd;
+}
+
+.risk-high .no-risk-icon {
+  color: #c62828;
+  background-color: #fdecea;
+}
+
+.risk-unknown .no-risk-icon {
+  color: #666;
+  background-color: #eeeeee;
 }

@@ -416,13 +416,11 @@ function MetabolicResult() {
               風險因素
           ================================== */}
 
-          <section className="risk-factor-section">
+          <section className={`risk-factor-section risk-${result?.risk_group ?? "unknown"}`}>
 
             <div className="result-section-heading">
 
-              <div className="risk-factor-heading-icon">
-                !
-              </div>
+
 
 
               <div>
@@ -442,23 +440,27 @@ function MetabolicResult() {
             <div className="no-risk-factor">
 
               <div className="no-risk-icon">
-                  ✓
-                </div>
+                {result?.risk_group === "high"
+                  ? "!"
+                  : result?.risk_group === "intermediate"
+                    ? "!"
+                    : "✓"}
+              </div>
 
             <div>
 
-              <strong>
+              <p className="risk-group-text">
                 風險分層：{riskGroupText}
-              </strong>
+              </p>
               
-              <strong>
+              <p className="risk-group-text">
                 目前可能符合代謝症候群的風險機率：
                 {
                   riskPercent === "-"
                   ? "暫無資料"
                   : `${riskPercent}%`
                 }
-              </strong>
+              </p>
 
               <p>
                 使用模型：
