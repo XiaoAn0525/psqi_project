@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import {
+  buildMetabolicRiskReport,
+  downloadRiskPdf,
+} from "../modules/metabolic-risk-pdf-module/dist/metabolic-risk-pdf.js";
 import "./MetabolicResult.css";
-
 
 function MetabolicResult() {
   const navigate = useNavigate();
@@ -57,6 +60,26 @@ function MetabolicResult() {
           正在讀取評估結果...
         </p>
       </div>
+    );
+  }
+
+  // =========================================
+  // PDF：讀取原始問卷資料
+  // =========================================
+
+  const savedScreeningData =
+    sessionStorage.getItem("metabolicScreeningData");
+
+  let data = {};
+
+  try {
+    data = savedScreeningData
+      ? JSON.parse(savedScreeningData)
+      : {};
+  } catch (error) {
+    console.error(
+      "讀取 metabolicScreeningData 失敗：",
+      error
     );
   }
 
@@ -138,7 +161,7 @@ function MetabolicResult() {
   
   const riskGroupLabels  = {
     low: "較低風險",
-    medium: "中等風險",
+    intermediate: "中等風險",
     high: "較高風險",
   };
 
@@ -162,6 +185,130 @@ function MetabolicResult() {
     result?.risk_group ?? null;
 
 
+  // =========================================
+  // PDF：問卷資料格式轉換
+  // =========================================
+
+  const questionnaireForPdf = {
+    age: Number(data.age),
+    sex: data.sex,
+
+    heightCm: Number(data.height_cm),
+    weightKg: Number(data.weight_kg),
+
+    waistCm:
+      data.waist_cm !== null &&
+      data.waist_cm !== undefined
+        ? Number(data.waist_cm)
+        : undefined,
+
+    sleepHours: Number(data.sleep_hours),
+
+    smokingStatus: data.smoking_status,
+    drinkingStatus: data.drinking_status,
+    betelStatus: data.betel_status,
+
+    exerciseFrequency:
+      data.exercise_frequency,
+
+    vegetableIntake:
+      data.vegetable_intake,
+
+    fruitIntake:
+      data.fruit_intake,
+
+    friedProcessedFood:
+      data.fried_processed_food,
+
+    saltySauceHabit:
+      data.salty_sauce_habit,
+  };
+
+
+  // =========================================
+  // PDF：模型結果格式轉換
+  // =========================================
+
+  const riskResultForPdf = {
+    index:
+      result?.risk_probability != null
+        ? Number(
+            (
+              Number(result.risk_probability) * 100
+            ).toFixed(1)
+          )
+        : null,
+
+    group:
+      result?.risk_group ?? null,
+
+    bmi:
+      result?.bmi != null
+        ? Number(result.bmi)
+        : null,
+
+    sleepCategory:
+      getSleepCategoryText(),
+
+    factors: [],
+  };
+
+
+  // =========================================
+  // PDF：模型資訊
+  // =========================================
+
+  const modelName =
+    result?.model_used
+      ? result.model_used.replace("_", " ")
+      : result?.model
+        ? `Model ${result.model}`
+        : "未知模型";
+
+  const modelRoute =
+    result?.waist_model_used
+      ? "已提供腰圍，本次使用含腰圍資料的 Model C。"
+      : "未提供腰圍，本次使用 Model B。";
+
+    // =========================================
+    // PDF：下載
+    // =========================================
+
+  const handleDownloadPdf = async () => {
+    try {
+      const report = buildMetabolicRiskReport({
+        data: questionnaireForPdf,
+
+        result: riskResultForPdf,
+
+        modelName: modelName,
+
+        modelRoute: modelRoute,
+
+        useWaist:
+          result?.waist_model_used === true,
+
+        variant: Date.now(),
+
+        branding: {
+          mark: "H",
+          name: "睡眠模式與代謝健康",
+          subtitle: "個人健康風險報告",
+          footerRight: "睡眠模式與代謝健康",
+          fileNamePrefix: "代謝症候群風險報告",
+        },
+      });
+
+      await downloadRiskPdf(report);
+
+    } catch (error) {
+      console.error(
+        "PDF 產生失敗：",
+        error
+      );
+    }
+  };
+  
   // =========================================
   // 重新評估
   // =========================================
@@ -456,7 +603,7 @@ function MetabolicResult() {
               <p className="risk-group-text">
                 目前可能符合代謝症候群的風險機率：
                 {
-                  riskPercent === "-"
+                  riskPercent === null
                   ? "暫無資料"
                   : `${riskPercent}%`
                 }
@@ -633,8 +780,19 @@ function MetabolicResult() {
             Buttons
         ==================================== */}
 
-        <div className="result-actions">
+        <div className="pdf-download-area">
 
+          <button
+            type="button"
+            className="pdf-download-button"
+            onClick={handleDownloadPdf}
+          >
+            下載 PDF 報告
+          </button>
+
+        </div>
+
+        <div className="result-actions">
 
           <button
             type="button"

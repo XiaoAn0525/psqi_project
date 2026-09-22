@@ -957,6 +957,25 @@
   gap: 13px;
 }
 
+.pdf-download-area {
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.pdf-download-button {
+  width: 100%;
+
+  padding: 16px 24px;
+
+  border: none;
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+  font-weight: 600;
+}
 
 .result-restart-button,
 .result-finish-button {
