@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# 保留 PDF 匯出模組的 dist
+!src/modules/metabolic-risk-pdf-module/dist/
+!src/modules/metabolic-risk-pdf-module/dist/**
