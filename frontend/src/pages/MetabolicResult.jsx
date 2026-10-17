@@ -2,9 +2,15 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import {
+  PdfDownloadButton,
+  createMetabolicPdfReport,
+} from "../features/pdf-report";
+/*
+import {
   buildMetabolicRiskReport,
   downloadRiskPdf,
 } from "../modules/metabolic-risk-pdf-module/dist/metabolic-risk-pdf.js";
+*/
 import "./MetabolicResult.css";
 
 function MetabolicResult() {
@@ -269,6 +275,96 @@ function MetabolicResult() {
     result?.waist_model_used
       ? "已提供腰圍，本次使用含腰圍資料的 Model C。"
       : "未提供腰圍，本次使用 Model B。";
+
+
+  const pdfReport = createMetabolicPdfReport({
+    data: questionnaireForPdf,
+    result: riskResultForPdf,
+
+    modelName,
+    modelRoute,
+
+    useWaist:
+      result?.waist_model_used === true,
+      
+  });
+
+  // =========================================
+  // 本次需留意的生活項目
+  // =========================================
+
+  const attentionItems = [];
+
+  if (
+    ["passive", "occasional", "daily"]
+      .includes(questionnaireForPdf.smokingStatus)
+  ) {
+    attentionItems.push("目前有菸品或二手菸暴露");
+  }
+
+  if (
+    ["weekly_3_4", "weekly_5_6", "daily"]
+      .includes(questionnaireForPdf.drinkingStatus)
+  ) {
+    attentionItems.push("飲酒頻率較高");
+  }
+
+  if (
+    ["weekly_1_3", "weekly_4_5", "weekly_6_or_daily"]
+      .includes(questionnaireForPdf.betelStatus)
+  ) {
+    attentionItems.push("目前有嚼檳榔習慣");
+  }
+
+  if (
+    !["daily_or_more", "weekly_4_6"]
+      .includes(questionnaireForPdf.exerciseFrequency)
+  ) {
+    attentionItems.push("目前規律運動頻率較低");
+  }
+
+  if (
+    questionnaireForPdf.friedProcessedFood !== "lt_weekly"
+  ) {
+    attentionItems.push("炸物或加工食品攝取較頻繁");
+  }
+
+  if (
+    ["often", "always"]
+      .includes(questionnaireForPdf.saltySauceHabit)
+  ) {
+    attentionItems.push("重鹹醬料使用較頻繁");
+  }
+
+  if (
+    questionnaireForPdf.sleepHours < 6 ||
+    questionnaireForPdf.sleepHours >= 9
+  ) {
+    attentionItems.push("目前睡眠時數需要留意");
+  }
+
+  // =========================================
+  // 健康建議
+  // =========================================
+
+  const healthSuggestions = [
+    ...(pdfReport?.priorities ?? []),
+    ...(pdfReport?.lifestylePlan ?? []),
+  ];
+
+  if (pdfReport?.exercisePlan) {
+    healthSuggestions.push({
+      title: "運動與活動",
+      detail: pdfReport.exercisePlan.goal,
+    });
+  }
+
+  if (pdfReport?.nutritionPlan) {
+    healthSuggestions.push({
+      title: "飲食調整",
+      detail: pdfReport.nutritionPlan.actionExample,
+    });
+  }
 
     // =========================================
     // PDF：下載
@@ -624,6 +720,65 @@ function MetabolicResult() {
 
           </section>
 
+          <section className="risk-factor-section">
+
+            <div className="result-section-heading">
+
+              <div>
+                <span>
+                  RISK FACTORS
+                </span>
+
+                <h3>
+                  本次需留意的生活項目
+                </h3>
+              </div>
+
+            </div>
+
+            <div className="risk-factor-list">
+
+              {attentionItems.length > 0 ? (
+
+                attentionItems.map((item, index) => (
+
+                  <div
+                    className="risk-factor-item"
+                    key={index}
+                  >
+
+                    <div className="risk-factor-dot">
+                      !
+                    </div>
+
+                    <p>
+                      {item}
+                    </p>
+
+                  </div>
+
+                ))
+
+              ) : (
+
+                <div className="no-risk-factor">
+
+                  <div className="no-risk-icon">
+                    ✓
+                  </div>
+
+                  <p>
+                    本次問卷未出現需要特別提醒的生活項目。
+                  </p>
+
+                </div>
+
+              )}
+
+            </div>
+
+          </section>
+          
           {/* =================================
               健康建議
           ================================== */}
@@ -635,7 +790,6 @@ function MetabolicResult() {
               <div className="section-icon">
                 ✓
               </div>
-
 
               <div>
 
@@ -651,56 +805,51 @@ function MetabolicResult() {
 
             </div>
 
-
             <div className="recommendation-list">
 
-              {
-                result.recommendations &&
-                result.recommendations.length > 0
-                  ? (
+              {healthSuggestions.length > 0 ? (
 
-                    result.recommendations.map(
-                      (
-                        item,
-                        index
-                      ) => (
+                healthSuggestions.map((item, index) => (
 
-                        <div
-                          className="recommendation-item"
-                          key={index}
-                        >
+                  <div
+                    className="recommendation-item"
+                    key={index}
+                  >
 
-                          <div className="recommendation-check">
-                            ✓
-                          </div>
-
-
-                          <p>
-                            {item}
-                          </p>
-
-                        </div>
-
-                      )
-                    )
-
-                  )
-                  : (
-
-                    <div className="recommendation-item">
-
-                      <div className="recommendation-check">
-                        ✓
-                      </div>
-
-                      <p>
-                        建議持續維持良好的生活與健康習慣。
-                      </p>
-
+                    <div className="recommendation-check">
+                      ✓
                     </div>
 
-                  )
-              }
+                    <div>
+                      <strong>
+                        {item.title}
+                      </strong>
+
+                      <p>
+                        {item.detail}
+                      </p>
+                    </div>
+
+                  </div>
+
+                ))
+
+              ) : (
+
+                <div className="recommendation-item">
+
+                  <div className="recommendation-check">
+                    ✓
+                  </div>
+
+                  <p>
+                    建議持續維持規律作息、
+                    均衡飲食與適度活動。
+                  </p>
+
+                </div>
+
+              )}
 
             </div>
 
@@ -782,13 +931,12 @@ function MetabolicResult() {
 
         <div className="pdf-download-area">
 
-          <button
-            type="button"
+          <PdfDownloadButton
+            report={pdfReport}
             className="pdf-download-button"
-            onClick={handleDownloadPdf}
           >
             下載 PDF 報告
-          </button>
+          </PdfDownloadButton>
 
         </div>
 

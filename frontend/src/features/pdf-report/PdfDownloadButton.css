@@ -1,0 +1,33 @@
+.pdf-download-button {
+  min-height: 48px;
+  padding: 12px 20px;
+  border: 1px solid #9ed6d2;
+  border-radius: 12px;
+  color: #157c81;
+  background: #edf9f8;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.pdf-download-button:hover:not(:disabled) {
+  background: #dff3f1;
+  box-shadow: 0 8px 20px rgba(38, 160, 151, 0.15);
+  transform: translateY(-2px);
+}
+
+.pdf-download-button:focus-visible {
+  outline: 3px solid rgba(21, 124, 129, 0.25);
+  outline-offset: 2px;
+}
+
+.pdf-download-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
