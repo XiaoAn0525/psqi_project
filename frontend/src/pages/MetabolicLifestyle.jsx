@@ -487,7 +487,7 @@ function MetabolicLifestyle() {
                 </h4>
 
                 <p>
-                  請依目前的飲食狀況選擇。
+                  請依目前的檳榔使用狀況選擇。
                 </p>
               </div>
 
@@ -556,7 +556,7 @@ function MetabolicLifestyle() {
                 </h4>
 
                 <p>
-                  請依目前的檳榔使用狀況選擇。
+                  請依目前的飲食狀況選擇。
                 </p>
               </div>
 

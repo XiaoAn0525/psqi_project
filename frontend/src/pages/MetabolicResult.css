@@ -1218,6 +1218,48 @@
   color: #c62828;
 }
 
+.risk-probability-row {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.risk-probability-label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.risk-low .risk-probability-label {
+  color: #2e7d32;
+}
+
+.risk-intermediate .risk-probability-label {
+  color: #b07a00;
+}
+
+.risk-high .risk-probability-label {
+  color: #c62828;
+}
+
+.risk-factor-section .risk-probability-value {
+  display: block;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.risk-factor-section.risk-low .risk-probability-value {
+  color: #2e7d32;
+}
+
+.risk-factor-section.risk-intermediate .risk-probability-value {
+  color: #b07a00;
+}
+
+.risk-factor-section.risk-high .risk-probability-value {
+  color: #c62828;
+}
+
 .risk-low .no-risk-icon {
   color: #2e7d32;
   background-color: #e8f5e9;

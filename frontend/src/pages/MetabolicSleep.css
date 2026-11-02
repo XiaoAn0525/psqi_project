@@ -540,51 +540,98 @@
 
 
 .sleep-quick-button {
-  width: 100% !important;
+  background: #ffffff;
+  color: #56627a;
+  border: 1px solid #d9dfeb;
+  border-radius: 12px;
 
-  min-height: 40px;
-
-  padding: 8px 5px !important;
-
-  border: 1px solid #dce3ea !important;
-
-  border-radius: 10px !important;
-
-  background: #fafbfd !important;
-
-  color: #6b788a !important;
-
-  font-size: 11px !important;
-
-  font-weight: 650;
-
+  padding: 14px 20px;
   cursor: pointer;
 
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease,
-    color 0.2s ease;
+  transition: 0.2s ease;
 }
 
 
-.sleep-quick-button:hover {
-  border-color: #aab4d5 !important;
+/* 尚未選取時 hover */
+/* 5 小時：紅 */
+.sleep-quick-button.sleep-5:hover {
+  background: #fdecec;
+  color: #c62828;
+  border-color: #e59a9a;
+}
 
-  color: #5968a2 !important;
+/* 6 小時：黃 */
+.sleep-quick-button.sleep-6:hover {
+  background: #fff6dd;
+  color: #b7791f;
+  border-color: #e6c66a;
+}
 
-  background: #f5f6fc !important;
+/* 7 小時：綠 */
+.sleep-quick-button.sleep-7:hover {
+  background: #eaf7ee;
+  color: #2fae36;
+  border-color: #86c796;
+}
+
+/* 8 小時：綠 */
+.sleep-quick-button.sleep-8:hover {
+  background: #eaf7ee;
+  color: #2fae36;
+  border-color: #86c796;
+}
+
+/* 9 小時：綠 */
+.sleep-quick-button.sleep-9:hover {
+  background: #eaf7ee;
+  color: #2fae36;
+  border-color: #86c796;
 }
 
 
+/* 共用選取效果 */
 .sleep-quick-button.selected {
-  border-color: #7584bb !important;
+  box-shadow: 0 0 0 3px rgba(102, 117, 178, 0.08);
+}
 
-  color: #52619b !important;
 
-  background: #eef0fa !important;
+/* 5 小時：紅 */
+.sleep-quick-button.selected.sleep-5 {
+  background: #fdecec;
+  color: #c62828;
+  border-color: #e59a9a;
+}
 
-  box-shadow:
-    0 0 0 3px rgba(102, 117, 178, 0.08);
+
+/* 6 小時：黃 */
+.sleep-quick-button.selected.sleep-6 {
+  background: #fff6dd;
+  color: #b7791f;
+  border-color: #e6c66a;
+}
+
+
+/* 7 小時：綠 */
+.sleep-quick-button.selected.sleep-7 {
+  background: #eaf7ee;
+  color: #2fae36;
+  border-color: #86c796;
+}
+
+
+/* 8 小時：綠 */
+.sleep-quick-button.selected.sleep-8 {
+  background: #eaf7ee;
+  color: #2fae36;
+  border-color: #86c796;
+}
+
+
+/* 9 小時：綠 */
+.sleep-quick-button.selected.sleep-9 {
+  background: #eaf7ee;
+  color: #2fae36;
+  border-color: #86c796;
 }
 
 
@@ -974,4 +1021,71 @@
     grid-row: 2;
   }
 
+}
+
+.sleep-result-preview.sleep-status-low {
+  background: #fff1f1;
+  border-color: #e59a9a;
+}
+
+.sleep-result-preview.sleep-status-short {
+  background: #fff8e6;
+  border-color: #e5bf72;
+}
+
+.sleep-result-preview.sleep-status-normal {
+  background: #eef9f4;
+  border-color: #86c7ad;
+}
+
+.sleep-result-preview.sleep-status-long {
+  background: #eef2ff;
+  border-color: #8fa5dc;
+}
+
+/* 少於 6 小時：紅 */
+.sleep-status-low .sleep-result-icon {
+  background: #d96b6b;
+  color: #ffffff;
+}
+
+.sleep-status-low .sleep-result-content h4,
+.sleep-status-low .sleep-category {
+  color: #c62828;
+}
+
+
+/* 6 ～ 未滿 7 小時：黃 */
+.sleep-status-short .sleep-result-icon {
+  background: #d9a453;
+  color: #ffffff;
+}
+
+.sleep-status-short .sleep-result-content h4,
+.sleep-status-short .sleep-category {
+  color: #b7791f;
+}
+
+
+/* 7 ～ 9 小時：綠 */
+.sleep-status-normal .sleep-result-icon {
+  background: #49aa98;
+  color: #ffffff;
+}
+
+.sleep-status-normal .sleep-result-content h4,
+.sleep-status-normal .sleep-category {
+  color: #27856f;
+}
+
+
+/* 超過 9 小時：藍 */
+.sleep-status-long .sleep-result-icon {
+  background: #7185bf;
+  color: #ffffff;
+}
+
+.sleep-status-long .sleep-result-content h4,
+.sleep-status-long .sleep-category {
+  color: #526bb3;
 }

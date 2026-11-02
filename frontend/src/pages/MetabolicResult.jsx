@@ -564,6 +564,73 @@ function MetabolicResult() {
 
           </div>
 
+          {/* =================================
+              風險因素
+          ================================== */}
+
+          <section className={`risk-factor-section risk-${result?.risk_group ?? "unknown"}`}>
+
+            <div className="result-section-heading">
+
+
+
+
+              <div>
+
+                <span>
+                  RISK FACTORS
+                </span>
+
+                <h3>
+                  本次預測結果
+                </h3>
+
+              </div>
+
+            </div>
+
+            <div className="no-risk-factor">
+
+              <div className="no-risk-icon">
+                {result?.risk_group === "high"
+                  ? "!"
+                  : result?.risk_group === "intermediate"
+                    ? "!"
+                    : "✓"}
+              </div>
+
+            <div>
+
+              <p className="risk-group-text">
+                風險分層：{riskGroupText}
+              </p>
+              
+              <div className="risk-probability-row">
+                <span className="risk-probability-label">
+                  目前可能符合代謝症候群的風險機率：
+                </span>
+
+                <strong className="risk-probability-value">
+                  {riskPercent === null
+                    ? "暫無資料"
+                    : `${riskPercent}%`}
+                </strong>
+              </div>
+
+              <p>
+                使用模型：
+                {result?.model_used
+                  ? result.model_used.replace("_", " ")
+                  : result?.model
+                    ? `Model ${result.model}`
+                    : "無法判定"}
+              </p>
+
+            </div>
+
+          </div>
+
+          </section>
 
           {/* =================================
               BMI / 睡眠
@@ -628,7 +695,7 @@ function MetabolicResult() {
           <div className="result-waist">
 
             <div className="result-waist-icon">
-              04
+              腰
             </div>
 
 
@@ -653,72 +720,6 @@ function MetabolicResult() {
             </div>
 
           </div>
-
-
-          {/* =================================
-              風險因素
-          ================================== */}
-
-          <section className={`risk-factor-section risk-${result?.risk_group ?? "unknown"}`}>
-
-            <div className="result-section-heading">
-
-
-
-
-              <div>
-
-                <span>
-                  RISK FACTORS
-                </span>
-
-                <h3>
-                  本次預測結果
-                </h3>
-
-              </div>
-
-            </div>
-
-            <div className="no-risk-factor">
-
-              <div className="no-risk-icon">
-                {result?.risk_group === "high"
-                  ? "!"
-                  : result?.risk_group === "intermediate"
-                    ? "!"
-                    : "✓"}
-              </div>
-
-            <div>
-
-              <p className="risk-group-text">
-                風險分層：{riskGroupText}
-              </p>
-              
-              <p className="risk-group-text">
-                目前可能符合代謝症候群的風險機率：
-                {
-                  riskPercent === null
-                  ? "暫無資料"
-                  : `${riskPercent}%`
-                }
-              </p>
-
-              <p>
-                使用模型：
-                {result?.model_used
-                  ? result.model_used.replace("_", " ")
-                  : result?.model
-                    ? `Model ${result.model}`
-                    : "無法判定"}
-              </p>
-
-            </div>
-
-          </div>
-
-          </section>
 
           <section className="risk-factor-section">
 

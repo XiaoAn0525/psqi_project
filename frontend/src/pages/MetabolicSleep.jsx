@@ -238,15 +238,12 @@ function MetabolicSleep() {
                 <button
                   key={hour}
                   type="button"
-                  className={
+                  className={`sleep-quick-button sleep-${hour} ${
                     Number(sleepHours) === hour
-                      ? "sleep-quick-button selected"
-                      : "sleep-quick-button"
-                  }
-                  onClick={() => {
-                    setSleepHours(hour);
-                    setError("");
-                  }}
+                      ? `selected sleep-${hour}`
+                      : ""
+                  }`}
+                  onClick={() => setSleepHours(hour)}
                 >
                   {hour} 小時
                 </button>
@@ -258,7 +255,19 @@ function MetabolicSleep() {
 
 
           {/* 睡眠分類 */}
-          <div className="sleep-result-preview">
+          <div
+            className={`sleep-result-preview ${
+              !sleepHours
+                ? ""
+                : Number(sleepHours) < 6
+                  ? "sleep-status-low"
+                  : Number(sleepHours) < 7
+                    ? "sleep-status-short"
+                    : Number(sleepHours) <= 9
+                      ? "sleep-status-normal"
+                      : "sleep-status-long"
+            }`}
+          >
 
             <div className="sleep-result-icon">
               Zz
