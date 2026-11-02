@@ -1,0 +1,54 @@
+import type { PdfReportData } from "./pdf-report";
+export type RiskKey = "low" | "intermediate" | "high";
+export type Sex = "female" | "male";
+export type SmokingStatus = "never" | "passive" | "former" | "occasional" | "daily";
+export type DrinkingStatus = "never_or_lt_weekly" | "former" | "weekly_1_2" | "weekly_3_4" | "weekly_5_6" | "daily";
+export type BetelStatus = "never" | "former" | "weekly_1_3" | "weekly_4_5" | "weekly_6_or_daily";
+export type ExerciseFrequency = "daily_or_more" | "weekly_4_6" | "weekly_2_3" | "weekly_once" | "rare_or_none";
+export type VegetableIntake = "lt_half_bowl" | "half_to_one_bowl" | "one_to_1_5_bowls" | "one_5_to_two_bowls" | "gte_two_bowls";
+export type FruitIntake = "never" | "occasionally" | "often" | "always";
+export type FriedFoodFrequency = "lt_weekly" | "weekly_2_3" | "weekly_4_5" | "weekly_6_or_daily";
+export type SaltySauceHabit = "never" | "occasionally" | "often" | "always";
+export type MetabolicQuestionnaireData = {
+    age: number;
+    sex: Sex;
+    heightCm: number;
+    weightKg: number;
+    waistCm?: number;
+    sleepHours: number;
+    smokingStatus: SmokingStatus;
+    drinkingStatus: DrinkingStatus;
+    betelStatus: BetelStatus;
+    exerciseFrequency: ExerciseFrequency;
+    vegetableIntake: VegetableIntake;
+    fruitIntake: FruitIntake;
+    friedProcessedFood: FriedFoodFrequency;
+    saltySauceHabit: SaltySauceHabit;
+};
+export type RiskResult = {
+    index: number;
+    group: RiskKey;
+    bmi: number;
+    sleepCategory: string;
+    factors: string[];
+};
+export type GuidanceRules = {
+    adequateExercise: ExerciseFrequency[];
+    adequateVegetables: VegetableIntake[];
+    adequateFruit: FruitIntake[];
+    adequateFriedFood: FriedFoodFrequency[];
+    adequateSaltySauce: SaltySauceHabit[];
+    minSleepHours: number;
+    maxSleepHoursExclusive: number;
+    maleWaistCm: number;
+    femaleWaistCm: number;
+    bmiThreshold: number;
+};
+export type ConditionalGuidance = Pick<PdfReportData, "priorities" | "exercisePlan" | "nutritionPlan" | "lifestylePlan" | "platforms">;
+export type GuidanceOptions = {
+    useWaist?: boolean;
+    variant?: number;
+    rules?: Partial<GuidanceRules>;
+};
+export declare const defaultGuidanceRules: GuidanceRules;
+export declare function buildConditionalGuidance(data: MetabolicQuestionnaireData, result: RiskResult, options?: GuidanceOptions): ConditionalGuidance;
